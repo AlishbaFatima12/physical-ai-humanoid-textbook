@@ -3,11 +3,17 @@ const {themes} = require('prism-react-renderer');
 module.exports = {
   title: 'Physical AI & Humanoid Robotics',
   tagline: 'From Digital AI to Embodied Intelligence - Build Autonomous Robots from Scratch',
-  url: 'https://example.com',
-  baseUrl: '/',
+  url: 'https://alishbafatima12.github.io',
+  baseUrl: '/physical-ai-humanoid-textbook/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
+
+  // GitHub Pages deployment config
+  organizationName: 'AlishbaFatima12',
+  projectName: 'physical-ai-humanoid-textbook',
+  deploymentBranch: 'gh-pages',
+  trailingSlash: false,
 
   presets: [
     [
@@ -16,7 +22,7 @@ module.exports = {
         docs: {
           sidebarPath: './sidebars.js',
           routeBasePath: '/',
-          editUrl: 'https://github.com/your-username/physical-ai-textbook/edit/main/docs/',
+          editUrl: 'https://github.com/AlishbaFatima12/physical-ai-humanoid-textbook/edit/main/docs/',
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
         },
