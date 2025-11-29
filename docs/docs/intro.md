@@ -148,7 +148,7 @@ A comprehensive hands-on textbook for building autonomous humanoid robots from s
 }}>
 🚀 Start Learning (Chapter 1)
 </a>
-<a href="/chapter-9-capstone" style={{
+<a href="chapter-9-capstone" style={{
   background: 'white',
   color: '#4f46e5',
   padding: '1rem 2rem',
