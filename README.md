@@ -1,83 +1,114 @@
 <div align="center">
 
-<!-- Book Cover Hero Section -->
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://via.placeholder.com/1200x400/4f46e5/ffffff?text=Physical+AI+%26+Humanoid+Robotics">
-  <img alt="Physical AI & Humanoid Robotics Textbook Cover" src="https://via.placeholder.com/1200x400/4f46e5/ffffff?text=Physical+AI+%26+Humanoid+Robotics" width="100%">
-</picture>
+<!-- Hero Section -->
+<h1>
+  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Robot.png" alt="Robot" width="80" height="80" />
+  <br/>
+  Physical AI & Humanoid Robotics Textbook
+</h1>
+
+<h2><em>From Digital AI to Embodied Intelligence</em></h2>
+
+<h3>Build Autonomous Humanoid Robots from Scratch</h3>
+
+<p>
+  <strong>Author:</strong> <a href="https://github.com/AlishbaFatima12">Syeda Alishba Fatima</a>
+  <br/>
+  📚 11 Chapters | 🎯 4 Learning Layers | 💯 100% Hands-On Projects
+</p>
 
 <br/>
-<br/>
 
-# 🤖 Physical AI & Humanoid Robotics
-### *From Digital AI to Embodied Intelligence*
+<!-- Main Call to Action -->
+<table>
+<tr>
+<td align="center" style="padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
 
-<h3>A Comprehensive Hands-On Textbook for Building Autonomous Humanoid Robots</h3>
+### 📖 **[VISIT THIS LINK TO ACCESS THE BOOK →](https://alishbafatima12.github.io/physical-ai-humanoid-textbook/)**
 
-**Author:** [Syeda Alishba Fatima](https://github.com/AlishbaFatima12) | **11 Chapters** | **4 Learning Layers** | **100% Hands-On**
+**Live Interactive Textbook:** https://alishbafatima12.github.io/physical-ai-humanoid-textbook/
+
+</td>
+</tr>
+</table>
 
 <br/>
 
 <!-- Badges -->
-[![Website](https://img.shields.io/badge/📚_Read_Online-Live_Textbook-4f46e5?style=for-the-badge&logoColor=white)](https://alishbafatima12.github.io/physical-ai-humanoid-textbook/)
-[![GitHub Stars](https://img.shields.io/github/stars/AlishbaFatima12/physical-ai-humanoid-textbook?style=for-the-badge&logo=github&color=yellow)](https://github.com/AlishbaFatima12/physical-ai-humanoid-textbook/stargazers)
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
-[![Contributors](https://img.shields.io/github/contributors/AlishbaFatima12/physical-ai-humanoid-textbook?style=for-the-badge&color=blue)](https://github.com/AlishbaFatima12/physical-ai-humanoid-textbook/graphs/contributors)
+<p>
+  <a href="https://alishbafatima12.github.io/physical-ai-humanoid-textbook/">
+    <img src="https://img.shields.io/badge/📚_READ_BOOK_ONLINE-Click_Here-4f46e5?style=for-the-badge&logoColor=white" alt="Read Book Online"/>
+  </a>
+  <a href="https://github.com/AlishbaFatima12/physical-ai-humanoid-textbook/stargazers">
+    <img src="https://img.shields.io/github/stars/AlishbaFatima12/physical-ai-humanoid-textbook?style=for-the-badge&logo=github&color=yellow" alt="GitHub Stars"/>
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License"/>
+  </a>
+</p>
 
 <br/>
 
-<!-- Call to Action Buttons -->
+---
+
+### 🚀 **Quick Navigation**
+
 <table>
   <tr>
     <td align="center" width="33%">
-      <a href="https://alishbafatima12.github.io/physical-ai-humanoid-textbook/">
-        <img src="https://img.shields.io/badge/START_LEARNING-Chapter_1-4f46e5?style=for-the-badge&logoColor=white" alt="Start Learning"/>
+      <a href="https://alishbafatima12.github.io/physical-ai-humanoid-textbook/chapter-1-introduction-physical-ai">
+        <img src="https://img.shields.io/badge/▶️_START-Chapter_1-4f46e5?style=for-the-badge" alt="Start Chapter 1"/>
       </a>
-      <br/>
-      <sub>Begin your journey into Physical AI</sub>
+      <br/><br/>
+      <strong>Begin Learning</strong><br/>
+      <sub>Introduction to Physical AI</sub>
     </td>
     <td align="center" width="33%">
       <a href="https://alishbafatima12.github.io/physical-ai-humanoid-textbook/chapter-9-capstone">
-        <img src="https://img.shields.io/badge/VIEW_CAPSTONE-Build_a_Butler-6366f1?style=for-the-badge" alt="Capstone Project"/>
+        <img src="https://img.shields.io/badge/🎯_CAPSTONE-Butler_Project-6366f1?style=for-the-badge" alt="Capstone"/>
       </a>
-      <br/>
-      <sub>See the final autonomous robot project</sub>
+      <br/><br/>
+      <strong>Final Project</strong><br/>
+      <sub>Build Autonomous Butler Robot</sub>
     </td>
     <td align="center" width="33%">
       <a href="https://github.com/AlishbaFatima12/physical-ai-humanoid-textbook">
-        <img src="https://img.shields.io/badge/GITHUB-Source_Code-24292e?style=for-the-badge&logo=github" alt="GitHub Repo"/>
+        <img src="https://img.shields.io/badge/💻_SOURCE-GitHub_Repo-24292e?style=for-the-badge&logo=github" alt="GitHub"/>
       </a>
-      <br/>
-      <sub>Explore the repository</sub>
+      <br/><br/>
+      <strong>View Repository</strong><br/>
+      <sub>All documentation & code</sub>
     </td>
   </tr>
 </table>
 
 <br/>
 
----
-
 ### 🎯 **What You'll Build**
 
 <table>
   <tr>
     <td width="25%" align="center">
-      <h3>🦾</h3>
+      <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Mechanical%20Arm.png" width="60" height="60" alt="Robot Arm"/>
+      <br/><br/>
       <b>Simulated Humanoids</b><br/>
       <sub>Gazebo & Unity</sub>
     </td>
     <td width="25%" align="center">
-      <h3>👁️</h3>
+      <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Body%20Parts/Eye.png" width="60" height="60" alt="Eye"/>
+      <br/><br/>
       <b>Vision Systems</b><br/>
       <sub>VSLAM & Detection</sub>
     </td>
     <td width="25%" align="center">
-      <h3>🧠</h3>
+      <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Body%20Parts/Brain.png" width="60" height="60" alt="Brain"/>
+      <br/><br/>
       <b>RL Locomotion</b><br/>
       <sub>PPO Walking Control</sub>
     </td>
     <td width="25%" align="center">
-      <h3>🗣️</h3>
+      <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Speaking%20Head.png" width="60" height="60" alt="Voice"/>
+      <br/><br/>
       <b>Voice-AI Butler</b><br/>
       <sub>LLM Integration</sub>
     </td>
