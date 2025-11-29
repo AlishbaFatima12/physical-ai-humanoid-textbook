@@ -1,199 +1,198 @@
 <div align="center">
 
-<!-- Hero Section -->
-<h1>
-  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Robot.png" alt="Robot" width="80" height="80" />
-  <br/>
-  Physical AI & Humanoid Robotics Textbook
-</h1>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Robot.png" alt="Robot" width="120" height="120" />
 
-<h2><em>From Digital AI to Embodied Intelligence</em></h2>
+# Physical AI & Humanoid Robotics
 
-<h3>Build Autonomous Humanoid Robots from Scratch</h3>
+### *Build Autonomous Humanoid Robots from Scratch*
 
-<p>
-  <strong>Author:</strong> <a href="https://github.com/AlishbaFatima12">Syeda Alishba Fatima</a>
-  <br/>
-  📚 11 Chapters | 🎯 4 Learning Layers | 💯 100% Hands-On Projects
-</p>
+**A comprehensive, hands-on textbook covering ROS 2, NVIDIA Isaac, Reinforcement Learning, and Vision-Language-Action systems**
 
 <br/>
 
-<!-- Main Call to Action -->
-<table>
-<tr>
-<td align="center" style="padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-
-### 📖 **[VISIT THIS LINK TO ACCESS THE BOOK →](https://alishbafatima12.github.io/physical-ai-humanoid-textbook/)**
-
-**Live Interactive Textbook:** https://alishbafatima12.github.io/physical-ai-humanoid-textbook/
-
-</td>
-</tr>
-</table>
-
-<br/>
-
-<!-- Badges -->
-<p>
-  <a href="https://alishbafatima12.github.io/physical-ai-humanoid-textbook/">
-    <img src="https://img.shields.io/badge/📚_READ_BOOK_ONLINE-Click_Here-4f46e5?style=for-the-badge&logoColor=white" alt="Read Book Online"/>
-  </a>
-  <a href="https://github.com/AlishbaFatima12/physical-ai-humanoid-textbook/stargazers">
-    <img src="https://img.shields.io/github/stars/AlishbaFatima12/physical-ai-humanoid-textbook?style=for-the-badge&logo=github&color=yellow" alt="GitHub Stars"/>
-  </a>
-  <a href="LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License"/>
-  </a>
-</p>
-
-<br/>
-
----
-
-### 🚀 **Quick Navigation**
-
-<table>
-  <tr>
-    <td align="center" width="33%">
-      <a href="https://alishbafatima12.github.io/physical-ai-humanoid-textbook/chapter-1-introduction-physical-ai">
-        <img src="https://img.shields.io/badge/▶️_START-Chapter_1-4f46e5?style=for-the-badge" alt="Start Chapter 1"/>
-      </a>
-      <br/><br/>
-      <strong>Begin Learning</strong><br/>
-      <sub>Introduction to Physical AI</sub>
-    </td>
-    <td align="center" width="33%">
-      <a href="https://alishbafatima12.github.io/physical-ai-humanoid-textbook/chapter-9-capstone">
-        <img src="https://img.shields.io/badge/🎯_CAPSTONE-Butler_Project-6366f1?style=for-the-badge" alt="Capstone"/>
-      </a>
-      <br/><br/>
-      <strong>Final Project</strong><br/>
-      <sub>Build Autonomous Butler Robot</sub>
-    </td>
-    <td align="center" width="33%">
-      <a href="https://github.com/AlishbaFatima12/physical-ai-humanoid-textbook">
-        <img src="https://img.shields.io/badge/💻_SOURCE-GitHub_Repo-24292e?style=for-the-badge&logo=github" alt="GitHub"/>
-      </a>
-      <br/><br/>
-      <strong>View Repository</strong><br/>
-      <sub>All documentation & code</sub>
-    </td>
-  </tr>
-</table>
-
-<br/>
-
-### 🎯 **What You'll Build**
-
-<table>
-  <tr>
-    <td width="25%" align="center">
-      <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Mechanical%20Arm.png" width="60" height="60" alt="Robot Arm"/>
-      <br/><br/>
-      <b>Simulated Humanoids</b><br/>
-      <sub>Gazebo & Unity</sub>
-    </td>
-    <td width="25%" align="center">
-      <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Body%20Parts/Eye.png" width="60" height="60" alt="Eye"/>
-      <br/><br/>
-      <b>Vision Systems</b><br/>
-      <sub>VSLAM & Detection</sub>
-    </td>
-    <td width="25%" align="center">
-      <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Body%20Parts/Brain.png" width="60" height="60" alt="Brain"/>
-      <br/><br/>
-      <b>RL Locomotion</b><br/>
-      <sub>PPO Walking Control</sub>
-    </td>
-    <td width="25%" align="center">
-      <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Speaking%20Head.png" width="60" height="60" alt="Voice"/>
-      <br/><br/>
-      <b>Voice-AI Butler</b><br/>
-      <sub>LLM Integration</sub>
-    </td>
-  </tr>
-</table>
-
-</div>
-
----
-
-## 👋 About This Textbook
-
-This comprehensive textbook guides students and practitioners through building autonomous humanoid robots using modern AI, robotics, and reinforcement learning techniques. The curriculum follows a **4-layer architecture** from foundational concepts to advanced integration.
+[![Read Online](https://img.shields.io/badge/📚_Read_Textbook-Online-4f46e5?style=for-the-badge&logoColor=white)](https://alishbafatima12.github.io/physical-ai-humanoid-textbook/)
+[![GitHub Stars](https://img.shields.io/github/stars/AlishbaFatima12/physical-ai-humanoid-textbook?style=for-the-badge&logo=github&color=gold)](https://github.com/AlishbaFatima12/physical-ai-humanoid-textbook/stargazers)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+[![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
 
 **Author:** [Syeda Alishba Fatima](https://github.com/AlishbaFatima12)
 
 ---
 
-## 🎯 What You'll Learn
+## 🌐 **[→ ACCESS THE ONLINE TEXTBOOK HERE ←](https://alishbafatima12.github.io/physical-ai-humanoid-textbook/)**
 
-- **ROS 2 Humble** - Robot Operating System fundamentals and advanced patterns
-- **Gazebo & Unity** - Physics simulation and photorealistic visualization
-- **NVIDIA Isaac Sim** - Synthetic data generation and perception training
-- **VSLAM & Navigation** - Visual SLAM, Nav2 stack, and path planning
-- **Reinforcement Learning** - PPO-based locomotion control for humanoids
-- **Vision-Language-Action (VLA)** - Multimodal robot interfaces with LLMs
-- **Hardware Deployment** - Real-world deployment on Jetson Orin edge devices
-- **Safety & Ethics** - Professional robotics development practices
+**Live URL:** `https://alishbafatima12.github.io/physical-ai-humanoid-textbook/`
 
 ---
 
-## 📖 Curriculum (11 Chapters)
+</div>
 
-### 🔷 Layer 1: Foundation
-1. **Introduction to Physical AI** - Evolution from digital to embodied AI
-2. **ROS 2 Fundamentals** - Nodes, topics, services, and actions
-3. **ROS 2 Packages & URDF** - Building modular robot packages
-4. **Gazebo Simulation** - Physics-accurate robot testing
+## 📋 Table of Contents
 
-### 🔷 Layer 2: AI-Assisted Development
-5. **Unity Visualization** - Photorealistic rendering and ROS 2 integration
-
-### 🔷 Layer 3: Intelligence Design (Reusable Skills)
-6. **NVIDIA Isaac Perception** - VSLAM, object detection, domain randomization
-7. **Path Planning & RL** - Nav2 navigation + PPO locomotion control
-
-### 🔷 Layer 4: Spec-Driven Integration
-8. **Voice-Language-Action** - LLM-based task planning with GPT-4/Claude
-9. **Capstone Project** - Autonomous humanoid butler (≥70% success rate)
-10. **Hardware & Lab Setup** - Jetson Orin deployment and sensors
-11. **Safety & Best Practices** - Risk assessment, ethics, and standards
+- [Overview](#-overview)
+- [What You'll Learn](#-what-youll-learn)
+- [Curriculum](#-curriculum)
+- [Technology Stack](#️-technology-stack)
+- [Quick Start](#-quick-start)
+- [Prerequisites](#-prerequisites)
+- [Learning Outcomes](#-learning-outcomes)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Contact](#-contact)
 
 ---
 
-## 🌐 Access the Textbook
+## 🎯 Overview
 
-### **Live Website:** [https://alishbafatima12.github.io/physical-ai-humanoid-textbook/](https://alishbafatima12.github.io/physical-ai-humanoid-textbook/)
+This textbook provides a **complete, hands-on education** in building autonomous humanoid robots using modern AI and robotics frameworks. Designed for university students, self-learners, and industry practitioners, the curriculum follows a **4-layer progressive architecture** from foundational concepts to advanced integration.
 
-The textbook features:
-- ✅ Interactive code examples with syntax highlighting
-- ✅ Hands-on exercises with acceptance criteria
-- ✅ Mermaid diagrams for system architecture
-- ✅ Self-check quizzes and troubleshooting guides
-- ✅ Layer-based learning progression
-- ✅ Real-world capstone project
+### Key Features
+
+✅ **11 Comprehensive Chapters** covering the entire robotics stack
+✅ **100% Hands-On** with real code examples and exercises
+✅ **Layer-Based Learning** from basics to advanced integration
+✅ **Capstone Project** - Build an autonomous humanoid butler
+✅ **Industry-Standard Tools** - ROS 2, Isaac Sim, Unity, PyTorch
+✅ **Production-Ready Skills** including safety, testing, and deployment
+
+---
+
+## 💡 What You'll Learn
+
+By completing this textbook, you will master:
+
+| Domain | Technologies | Skills |
+|--------|-------------|--------|
+| **Robotics Framework** | ROS 2 Humble, Nav2, URDF | Robot modeling, navigation, sensor fusion |
+| **Simulation** | Gazebo, NVIDIA Isaac Sim, Unity | Physics simulation, synthetic data generation |
+| **Perception** | VSLAM (RTAB-Map), YOLO, OpenCV | Visual SLAM, object detection, tracking |
+| **AI & ML** | GPT-4, Claude, Whisper, PyTorch | LLM integration, voice interfaces, deep learning |
+| **Control** | PPO (Stable Baselines3), Nav2 | Reinforcement learning, path planning, locomotion |
+| **Hardware** | Jetson Orin, RealSense, LiDAR | Edge deployment, sensor integration, real-world testing |
+
+---
+
+## 📚 Curriculum
+
+### 🔷 **Layer 1: Foundation** (Chapters 1-4)
+
+<table>
+<tr>
+<td width="10%"><strong>Ch 1</strong></td>
+<td width="30%"><strong>Introduction to Physical AI</strong></td>
+<td>Evolution from digital to embodied AI</td>
+</tr>
+<tr>
+<td><strong>Ch 2</strong></td>
+<td><strong>ROS 2 Fundamentals</strong></td>
+<td>Nodes, topics, services, actions</td>
+</tr>
+<tr>
+<td><strong>Ch 3</strong></td>
+<td><strong>ROS 2 Packages & URDF</strong></td>
+<td>Building modular robot software</td>
+</tr>
+<tr>
+<td><strong>Ch 4</strong></td>
+<td><strong>Gazebo Simulation</strong></td>
+<td>Physics-accurate robot testing</td>
+</tr>
+</table>
+
+### 🔷 **Layer 2: AI-Assisted Development** (Chapter 5)
+
+<table>
+<tr>
+<td width="10%"><strong>Ch 5</strong></td>
+<td width="30%"><strong>Unity Visualization</strong></td>
+<td>Photorealistic rendering & ROS 2 integration</td>
+</tr>
+</table>
+
+### 🔷 **Layer 3: Intelligence Design** (Chapters 6-7)
+
+<table>
+<tr>
+<td width="10%"><strong>Ch 6</strong></td>
+<td width="30%"><strong>NVIDIA Isaac Perception</strong></td>
+<td>VSLAM, synthetic data, domain randomization</td>
+</tr>
+<tr>
+<td><strong>Ch 7</strong></td>
+<td><strong>Path Planning & RL</strong></td>
+<td>Nav2 navigation + PPO locomotion control</td>
+</tr>
+</table>
+
+### 🔷 **Layer 4: Spec-Driven Integration** (Chapters 8-11)
+
+<table>
+<tr>
+<td width="10%"><strong>Ch 8</strong></td>
+<td width="30%"><strong>Voice-Language-Action</strong></td>
+<td>LLM-based task planning with GPT-4/Claude</td>
+</tr>
+<tr>
+<td><strong>Ch 9</strong></td>
+<td><strong>Capstone Project</strong></td>
+<td>Autonomous humanoid butler (≥70% success)</td>
+</tr>
+<tr>
+<td><strong>Ch 10</strong></td>
+<td><strong>Hardware & Lab Setup</strong></td>
+<td>Jetson Orin deployment and sensors</td>
+</tr>
+<tr>
+<td><strong>Ch 11</strong></td>
+<td><strong>Safety & Best Practices</strong></td>
+<td>Risk assessment, ethics, professional standards</td>
+</tr>
+</table>
 
 ---
 
 ## 🛠️ Technology Stack
 
-| Category | Technologies |
-|----------|-------------|
-| **Robotics Framework** | ROS 2 Humble, Nav2, URDF, tf2 |
-| **Simulation** | Gazebo Classic, NVIDIA Isaac Sim, Unity 2022.3 LTS |
-| **AI/ML** | OpenAI GPT-4, Claude, Whisper, PyTorch, Stable Baselines3 |
-| **Perception** | RTAB-Map (VSLAM), YOLO, OpenCV, RealSense SDK |
-| **Hardware** | Jetson Orin Nano, RealSense D435i, RPLiDAR A1M8, BNO085 IMU |
-| **Languages** | Python 3.10+, C++17, YAML, XML |
-| **Documentation** | Docusaurus 3.x, Markdown, Mermaid |
+<table>
+<tr>
+<td width="30%"><strong>Robotics</strong></td>
+<td>ROS 2 Humble, Nav2, Gazebo Classic, URDF, tf2</td>
+</tr>
+<tr>
+<td><strong>Simulation</strong></td>
+<td>NVIDIA Isaac Sim, Unity 2022.3 LTS</td>
+</tr>
+<tr>
+<td><strong>AI/ML</strong></td>
+<td>OpenAI GPT-4, Anthropic Claude, Whisper, PyTorch, Stable Baselines3</td>
+</tr>
+<tr>
+<td><strong>Perception</strong></td>
+<td>RTAB-Map (VSLAM), YOLOv8, OpenCV, RealSense SDK</td>
+</tr>
+<tr>
+<td><strong>Hardware</strong></td>
+<td>Jetson Orin Nano, RealSense D435i, RPLiDAR A1M8, BNO085 IMU</td>
+</tr>
+<tr>
+<td><strong>Languages</strong></td>
+<td>Python 3.10+, C++17, YAML, XML, Markdown</td>
+</tr>
+<tr>
+<td><strong>Documentation</strong></td>
+<td>Docusaurus 3.x, Mermaid diagrams</td>
+</tr>
+</table>
 
 ---
 
-## 💻 Run Locally
+## 🚀 Quick Start
 
-To run the documentation website locally:
+### Read Online (Recommended)
+
+Visit the live textbook: **[https://alishbafatima12.github.io/physical-ai-humanoid-textbook/](https://alishbafatima12.github.io/physical-ai-humanoid-textbook/)**
+
+### Run Locally
 
 ```bash
 # Clone the repository
@@ -209,84 +208,127 @@ npm start
 
 The website will open at `http://localhost:3000/`
 
----
+### Build for Production
 
-## 🎓 Who is This For?
-
-- **University Students** - Robotics, AI, and Computer Science programs
-- **Self-Learners** - Engineers transitioning to robotics/embodied AI
-- **Researchers** - Foundation for humanoid robotics research
-- **Industry Practitioners** - Building commercial robotic systems
-
-**Prerequisites:**
-- Basic Python programming
-- Linear algebra and calculus fundamentals
-- Ubuntu 22.04 (or WSL2 on Windows)
-- Basic understanding of ROS (helpful but not required)
+```bash
+cd docs
+npm run build    # Generate static files
+npm run serve    # Preview production build
+```
 
 ---
 
-## 📊 Learning Outcomes
+## 📋 Prerequisites
 
-By completing this textbook, you will be able to:
+**Required:**
+- Basic Python programming (functions, classes, loops)
+- Linux fundamentals (terminal, file system)
+- Ubuntu 22.04 LTS (or WSL2 on Windows)
 
-✅ Design and simulate humanoid robots in Gazebo and Unity
-✅ Implement VSLAM and object detection pipelines
-✅ Train RL policies for bipedal locomotion
-✅ Build voice-controlled autonomous systems with LLMs
-✅ Deploy robotics software on embedded hardware
-✅ Follow professional safety and development standards
-✅ **Build a functional autonomous humanoid butler** (Capstone)
+**Recommended:**
+- Linear algebra and calculus basics
+- Basic understanding of neural networks
+- Familiarity with command-line tools
+
+**Hardware:**
+- CPU: 4+ cores
+- RAM: 16GB minimum (32GB recommended)
+- GPU: NVIDIA GPU with 6GB+ VRAM (for Isaac Sim)
+- Storage: 50GB free space
+
+---
+
+## 🎓 Learning Outcomes
+
+Upon completing this textbook, you will be able to:
+
+✅ **Design & Model** humanoid robots using URDF and ROS 2
+✅ **Simulate** robots in Gazebo and Unity with accurate physics
+✅ **Implement** VSLAM and object detection pipelines
+✅ **Train** reinforcement learning policies for bipedal locomotion
+✅ **Integrate** voice, language, and action systems using LLMs
+✅ **Deploy** robotics software on embedded hardware (Jetson)
+✅ **Build** a functional autonomous humanoid butler (capstone)
+✅ **Follow** professional safety and development standards
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! If you find errors, have suggestions, or want to add content:
+Contributions are welcome! Here's how you can help:
 
-1. Fork this repository
-2. Create a feature branch (`git checkout -b feature/improvement`)
-3. Make your changes
-4. Commit with clear messages (`git commit -m "Add: explanation"`)
-5. Push to your fork (`git push origin feature/improvement`)
-6. Open a Pull Request
+1. **Report Issues** - Found an error or have a suggestion? [Open an issue](https://github.com/AlishbaFatima12/physical-ai-humanoid-textbook/issues)
+2. **Improve Content** - Fix typos, clarify explanations, or add examples
+3. **Add Exercises** - Contribute new exercises or projects
+4. **Translate** - Help translate the textbook to other languages
+
+### How to Contribute
+
+```bash
+# Fork the repository on GitHub
+# Clone your fork
+git clone https://github.com/YOUR_USERNAME/physical-ai-humanoid-textbook.git
+
+# Create a feature branch
+git checkout -b feature/your-improvement
+
+# Make your changes and commit
+git commit -m "Add: your improvement description"
+
+# Push and create a Pull Request
+git push origin feature/your-improvement
+```
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+You are free to:
+- ✅ Use this textbook for learning
+- ✅ Share it with others
+- ✅ Modify and adapt the content
+- ✅ Use it commercially
+
+Just provide attribution to the original author.
 
 ---
 
 ## 📬 Contact
 
 **Author:** Syeda Alishba Fatima
+**GitHub:** [@AlishbaFatima12](https://github.com/AlishbaFatima12)
+**Repository:** [physical-ai-humanoid-textbook](https://github.com/AlishbaFatima12/physical-ai-humanoid-textbook)
 
-- GitHub: [@AlishbaFatima12](https://github.com/AlishbaFatima12)
-- Repository: [physical-ai-humanoid-textbook](https://github.com/AlishbaFatima12/physical-ai-humanoid-textbook)
-
-For questions, issues, or feedback, please [open an issue](https://github.com/AlishbaFatima12/physical-ai-humanoid-textbook/issues).
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+For questions or feedback:
+- 💬 [Open a Discussion](https://github.com/AlishbaFatima12/physical-ai-humanoid-textbook/discussions)
+- 🐛 [Report an Issue](https://github.com/AlishbaFatima12/physical-ai-humanoid-textbook/issues)
+- 📧 Contact via GitHub profile
 
 ---
 
 ## 🙏 Acknowledgments
 
-- **ROS 2 Community** - For the excellent robotics framework
-- **NVIDIA Isaac Team** - For synthetic data generation tools
-- **OpenAI & Anthropic** - For multimodal AI capabilities
+- **ROS 2 Community** - For the excellent robotics middleware framework
+- **NVIDIA Isaac Team** - For powerful simulation and perception tools
+- **OpenAI & Anthropic** - For enabling multimodal AI capabilities
 - **Docusaurus** - For the beautiful documentation platform
+- **Open Source Community** - For countless libraries and tools
 
 ---
 
 <div align="center">
 
-### ⭐ Star this repository if you find it helpful!
+### ⭐ **Star this repository if you find it helpful!**
 
-**[📚 Start Learning →](https://alishbafatima12.github.io/physical-ai-humanoid-textbook/)**
+[![GitHub stars](https://img.shields.io/github/stars/AlishbaFatima12/physical-ai-humanoid-textbook?style=social)](https://github.com/AlishbaFatima12/physical-ai-humanoid-textbook/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/AlishbaFatima12/physical-ai-humanoid-textbook?style=social)](https://github.com/AlishbaFatima12/physical-ai-humanoid-textbook/network/members)
 
-</div>
+**[📚 Start Learning Now →](https://alishbafatima12.github.io/physical-ai-humanoid-textbook/)**
 
 ---
 
-**Built with ❤️ using Docusaurus, ROS 2, and AI**
+*Built with ❤️ using Docusaurus, ROS 2, and AI • Last Updated: 2025*
+
+</div>

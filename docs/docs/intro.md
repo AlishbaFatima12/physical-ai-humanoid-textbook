@@ -7,44 +7,102 @@ slug: /
 
 <div style={{textAlign: 'center', marginBottom: '4rem'}}>
 
-{/* Hero Banner */}
+{/* Hero Banner with High Contrast */}
 <div style={{
-  background: 'linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #818cf8 100%)',
-  padding: '4rem 2rem',
-  borderRadius: '24px',
-  color: 'white',
-  boxShadow: '0 20px 60px rgba(79,70,229,0.3)',
-  marginBottom: '2rem'
+  background: 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)',
+  padding: '5rem 2rem',
+  borderRadius: '20px',
+  boxShadow: '0 25px 50px -12px rgba(79, 70, 229, 0.5)',
+  marginBottom: '3rem',
+  position: 'relative',
+  overflow: 'hidden'
 }}>
 
-<h1 style={{fontSize: '3rem', fontWeight: '800', marginBottom: '1rem', color: 'white'}}>
+{/* Decorative elements */}
+<div style={{
+  position: 'absolute',
+  top: '-50%',
+  right: '-10%',
+  width: '400px',
+  height: '400px',
+  background: 'rgba(255,255,255,0.1)',
+  borderRadius: '50%',
+  filter: 'blur(60px)'
+}}></div>
+
+<div style={{position: 'relative', zIndex: 1}}>
+
+<h1 style={{
+  fontSize: '3.5rem',
+  fontWeight: '900',
+  marginBottom: '1.5rem',
+  color: '#ffffff',
+  textShadow: '0 4px 6px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.2)',
+  lineHeight: '1.2'
+}}>
 🤖 Physical AI & Humanoid Robotics
 </h1>
 
-<h2 style={{fontSize: '1.8rem', fontWeight: '300', marginBottom: '2rem', color: '#e0e7ff', fontStyle: 'italic'}}>
+<h2 style={{
+  fontSize: '2rem',
+  fontWeight: '400',
+  marginBottom: '2rem',
+  color: '#ffffff',
+  textShadow: '0 2px 4px rgba(0,0,0,0.2)',
+  fontStyle: 'italic',
+  letterSpacing: '0.5px'
+}}>
 From Digital AI to Embodied Intelligence
 </h2>
 
-<p style={{fontSize: '1.3rem', maxWidth: '800px', margin: '0 auto 2rem', lineHeight: '1.8', color: '#e0e7ff'}}>
+<p style={{
+  fontSize: '1.4rem',
+  maxWidth: '850px',
+  margin: '0 auto 2.5rem',
+  lineHeight: '1.8',
+  color: '#ffffff',
+  textShadow: '0 2px 4px rgba(0,0,0,0.2)',
+  fontWeight: '300'
+}}>
 A comprehensive hands-on textbook for building autonomous humanoid robots from scratch using ROS 2, NVIDIA Isaac, Reinforcement Learning, and Large Language Models
 </p>
 
-{/* Author Info */}
+{/* Author Info Card */}
 <div style={{
   display: 'inline-block',
-  background: 'rgba(255,255,255,0.15)',
-  backdropFilter: 'blur(10px)',
-  padding: '1rem 2rem',
-  borderRadius: '12px',
+  background: 'rgba(255,255,255,0.25)',
+  backdropFilter: 'blur(12px)',
+  padding: '1.5rem 3rem',
+  borderRadius: '16px',
   marginTop: '1rem',
-  border: '1px solid rgba(255,255,255,0.2)'
+  border: '2px solid rgba(255,255,255,0.3)',
+  boxShadow: '0 8px 32px rgba(0,0,0,0.1)'
 }}>
-<p style={{margin: 0, fontSize: '1.1rem', color: 'white'}}>
-✍️ <strong>Author:</strong> <a href="https://github.com/AlishbaFatima12" style={{color: 'white', textDecoration: 'underline'}}>Syeda Alishba Fatima</a>
+<p style={{
+  margin: 0,
+  fontSize: '1.2rem',
+  color: '#ffffff',
+  textShadow: '0 2px 4px rgba(0,0,0,0.2)',
+  fontWeight: '500'
+}}>
+✍️ <strong>Author:</strong> <a href="https://github.com/AlishbaFatima12" style={{
+  color: '#ffffff',
+  textDecoration: 'none',
+  borderBottom: '2px solid #ffffff',
+  fontWeight: '700'
+}}>Syeda Alishba Fatima</a>
 </p>
-<p style={{margin: '0.5rem 0 0 0', fontSize: '0.95rem', color: '#c7d2fe'}}>
+<p style={{
+  margin: '0.75rem 0 0 0',
+  fontSize: '1.05rem',
+  color: '#ffffff',
+  textShadow: '0 1px 2px rgba(0,0,0,0.2)',
+  fontWeight: '400'
+}}>
 📚 11 Chapters • 🎯 4 Learning Layers • 💯 100% Hands-On
 </p>
+</div>
+
 </div>
 
 </div>
