@@ -36,9 +36,11 @@ slug: /
   fontSize: '3.5rem',
   fontWeight: '900',
   marginBottom: '1.5rem',
-  color: '#ffffff',
-  textShadow: '0 4px 6px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.2)',
-  lineHeight: '1.2'
+  color: '#FFFFFF !important',
+  textShadow: '0 4px 8px rgba(0,0,0,0.5), 0 2px 4px rgba(0,0,0,0.3)',
+  lineHeight: '1.2',
+  WebkitTextFillColor: '#FFFFFF',
+  filter: 'drop-shadow(0 0 1px rgba(255,255,255,0.8))'
 }}>
 🤖 Physical AI & Humanoid Robotics
 </h1>
