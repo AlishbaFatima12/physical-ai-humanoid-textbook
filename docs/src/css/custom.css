@@ -329,6 +329,26 @@ summary:hover {
 }
 
 /* ============================================
+   INTRO PAGE TITLE FIX
+   ============================================ */
+
+/* Make the auto-generated "Course Overview" title white and visible */
+article header h1 {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+}
+
+/* For dark mode, keep it white too */
+[data-theme='dark'] article header h1 {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+
+/* ============================================
    RESPONSIVE DESIGN
    ============================================ */
 
