@@ -66,7 +66,7 @@ module.exports = {
           position: 'right',
         },
         {
-          href: 'https://github.com/your-username/physical-ai-textbook',
+          href: 'https://github.com/AlishbaFatima12/physical-ai-humanoid-textbook',
           label: 'GitHub',
           position: 'right',
         },
@@ -99,7 +99,7 @@ module.exports = {
           items: [
             {
               label: 'GitHub Discussions',
-              href: 'https://github.com/your-username/physical-ai-textbook/discussions',
+              href: 'https://github.com/AlishbaFatima12/physical-ai-humanoid-textbook/discussions',
             },
             {
               label: 'Discord',
@@ -112,11 +112,11 @@ module.exports = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/your-username/physical-ai-textbook',
+              href: 'https://github.com/AlishbaFatima12/physical-ai-humanoid-textbook',
             },
             {
               label: 'Report Issues',
-              href: 'https://github.com/your-username/physical-ai-textbook/issues',
+              href: 'https://github.com/AlishbaFatima12/physical-ai-humanoid-textbook/issues',
             },
           ],
         },
