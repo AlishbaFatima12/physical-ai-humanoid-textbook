@@ -1,14 +1,88 @@
-# Physical AI & Humanoid Robotics Textbook
-
-> **From Digital AI to Embodied Intelligence** - A comprehensive hands-on textbook for building autonomous humanoid robots from scratch
-
 <div align="center">
 
-[![Website](https://img.shields.io/badge/Website-Live-brightgreen?style=for-the-badge)](https://alishbafatima12.github.io/physical-ai-humanoid-textbook/)
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?style=for-the-badge&logo=github)](https://github.com/AlishbaFatima12/physical-ai-humanoid-textbook)
-[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
+<!-- Book Cover Hero Section -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://via.placeholder.com/1200x400/4f46e5/ffffff?text=Physical+AI+%26+Humanoid+Robotics">
+  <img alt="Physical AI & Humanoid Robotics Textbook Cover" src="https://via.placeholder.com/1200x400/4f46e5/ffffff?text=Physical+AI+%26+Humanoid+Robotics" width="100%">
+</picture>
 
-### 📚 **[Access the Textbook →](https://alishbafatima12.github.io/physical-ai-humanoid-textbook/)**
+<br/>
+<br/>
+
+# 🤖 Physical AI & Humanoid Robotics
+### *From Digital AI to Embodied Intelligence*
+
+<h3>A Comprehensive Hands-On Textbook for Building Autonomous Humanoid Robots</h3>
+
+**Author:** [Syeda Alishba Fatima](https://github.com/AlishbaFatima12) | **11 Chapters** | **4 Learning Layers** | **100% Hands-On**
+
+<br/>
+
+<!-- Badges -->
+[![Website](https://img.shields.io/badge/📚_Read_Online-Live_Textbook-4f46e5?style=for-the-badge&logoColor=white)](https://alishbafatima12.github.io/physical-ai-humanoid-textbook/)
+[![GitHub Stars](https://img.shields.io/github/stars/AlishbaFatima12/physical-ai-humanoid-textbook?style=for-the-badge&logo=github&color=yellow)](https://github.com/AlishbaFatima12/physical-ai-humanoid-textbook/stargazers)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+[![Contributors](https://img.shields.io/github/contributors/AlishbaFatima12/physical-ai-humanoid-textbook?style=for-the-badge&color=blue)](https://github.com/AlishbaFatima12/physical-ai-humanoid-textbook/graphs/contributors)
+
+<br/>
+
+<!-- Call to Action Buttons -->
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <a href="https://alishbafatima12.github.io/physical-ai-humanoid-textbook/">
+        <img src="https://img.shields.io/badge/START_LEARNING-Chapter_1-4f46e5?style=for-the-badge&logoColor=white" alt="Start Learning"/>
+      </a>
+      <br/>
+      <sub>Begin your journey into Physical AI</sub>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://alishbafatima12.github.io/physical-ai-humanoid-textbook/chapter-9-capstone">
+        <img src="https://img.shields.io/badge/VIEW_CAPSTONE-Build_a_Butler-6366f1?style=for-the-badge" alt="Capstone Project"/>
+      </a>
+      <br/>
+      <sub>See the final autonomous robot project</sub>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://github.com/AlishbaFatima12/physical-ai-humanoid-textbook">
+        <img src="https://img.shields.io/badge/GITHUB-Source_Code-24292e?style=for-the-badge&logo=github" alt="GitHub Repo"/>
+      </a>
+      <br/>
+      <sub>Explore the repository</sub>
+    </td>
+  </tr>
+</table>
+
+<br/>
+
+---
+
+### 🎯 **What You'll Build**
+
+<table>
+  <tr>
+    <td width="25%" align="center">
+      <h3>🦾</h3>
+      <b>Simulated Humanoids</b><br/>
+      <sub>Gazebo & Unity</sub>
+    </td>
+    <td width="25%" align="center">
+      <h3>👁️</h3>
+      <b>Vision Systems</b><br/>
+      <sub>VSLAM & Detection</sub>
+    </td>
+    <td width="25%" align="center">
+      <h3>🧠</h3>
+      <b>RL Locomotion</b><br/>
+      <sub>PPO Walking Control</sub>
+    </td>
+    <td width="25%" align="center">
+      <h3>🗣️</h3>
+      <b>Voice-AI Butler</b><br/>
+      <sub>LLM Integration</sub>
+    </td>
+  </tr>
+</table>
 
 </div>
 

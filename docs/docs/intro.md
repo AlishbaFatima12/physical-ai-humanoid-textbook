@@ -5,20 +5,102 @@ sidebar_position: 1
 slug: /
 ---
 
-<div style={{textAlign: 'center', marginBottom: '3rem', padding: '3rem 2rem', background: 'linear-gradient(135deg, rgba(79,70,229,0.05), rgba(99,102,241,0.05))', borderRadius: '16px'}}>
+<div style={{textAlign: 'center', marginBottom: '4rem'}}>
 
-# 🤖 Physical AI & Humanoid Robotics
+{/* Hero Banner */}
+<div style={{
+  background: 'linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #818cf8 100%)',
+  padding: '4rem 2rem',
+  borderRadius: '24px',
+  color: 'white',
+  boxShadow: '0 20px 60px rgba(79,70,229,0.3)',
+  marginBottom: '2rem'
+}}>
 
-### *From Digital AI to Embodied Intelligence*
+<h1 style={{fontSize: '3rem', fontWeight: '800', marginBottom: '1rem', color: 'white'}}>
+🤖 Physical AI & Humanoid Robotics
+</h1>
 
-<div style={{marginTop: '2rem', fontSize: '1.2rem', color: 'var(--ifm-color-primary)'}}>
+<h2 style={{fontSize: '1.8rem', fontWeight: '300', marginBottom: '2rem', color: '#e0e7ff', fontStyle: 'italic'}}>
+From Digital AI to Embodied Intelligence
+</h2>
 
-**Author: Syeda Alishba Fatima**
+<p style={{fontSize: '1.3rem', maxWidth: '800px', margin: '0 auto 2rem', lineHeight: '1.8', color: '#e0e7ff'}}>
+A comprehensive hands-on textbook for building autonomous humanoid robots from scratch using ROS 2, NVIDIA Isaac, Reinforcement Learning, and Large Language Models
+</p>
+
+{/* Author Info */}
+<div style={{
+  display: 'inline-block',
+  background: 'rgba(255,255,255,0.15)',
+  backdropFilter: 'blur(10px)',
+  padding: '1rem 2rem',
+  borderRadius: '12px',
+  marginTop: '1rem',
+  border: '1px solid rgba(255,255,255,0.2)'
+}}>
+<p style={{margin: 0, fontSize: '1.1rem', color: 'white'}}>
+✍️ <strong>Author:</strong> <a href="https://github.com/AlishbaFatima12" style={{color: 'white', textDecoration: 'underline'}}>Syeda Alishba Fatima</a>
+</p>
+<p style={{margin: '0.5rem 0 0 0', fontSize: '0.95rem', color: '#c7d2fe'}}>
+📚 11 Chapters • 🎯 4 Learning Layers • 💯 100% Hands-On
+</p>
+</div>
 
 </div>
 
-<div style={{marginTop: '1rem', fontSize: '0.9rem', color: '#64748b'}}>
-Build Autonomous Robots with ROS 2, Isaac Sim, Reinforcement Learning & LLMs
+{/* Quick Stats */}
+<div style={{display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap', marginBottom: '2rem'}}>
+<div style={{textAlign: 'center', minWidth: '150px'}}>
+<div style={{fontSize: '2.5rem'}}>🦾</div>
+<div style={{fontWeight: 'bold', color: '#4f46e5'}}>Simulated Robots</div>
+<div style={{fontSize: '0.9rem', color: '#64748b'}}>Gazebo & Unity</div>
+</div>
+<div style={{textAlign: 'center', minWidth: '150px'}}>
+<div style={{fontSize: '2.5rem'}}>👁️</div>
+<div style={{fontWeight: 'bold', color: '#4f46e5'}}>Vision Systems</div>
+<div style={{fontSize: '0.9rem', color: '#64748b'}}>VSLAM & Detection</div>
+</div>
+<div style={{textAlign: 'center', minWidth: '150px'}}>
+<div style={{fontSize: '2.5rem'}}>🧠</div>
+<div style={{fontWeight: 'bold', color: '#4f46e5'}}>RL Locomotion</div>
+<div style={{fontSize: '0.9rem', color: '#64748b'}}>PPO Walking</div>
+</div>
+<div style={{textAlign: 'center', minWidth: '150px'}}>
+<div style={{fontSize: '2.5rem'}}>🗣️</div>
+<div style={{fontWeight: 'bold', color: '#4f46e5'}}>Voice AI Butler</div>
+<div style={{fontSize: '0.9rem', color: '#64748b'}}>LLM Integration</div>
+</div>
+</div>
+
+{/* CTA Buttons */}
+<div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
+<a href="/chapter-1-introduction-physical-ai" style={{
+  background: '#4f46e5',
+  color: 'white',
+  padding: '1rem 2rem',
+  borderRadius: '8px',
+  textDecoration: 'none',
+  fontWeight: 'bold',
+  fontSize: '1.1rem',
+  boxShadow: '0 4px 12px rgba(79,70,229,0.3)',
+  transition: 'transform 0.2s'
+}}>
+🚀 Start Learning (Chapter 1)
+</a>
+<a href="/chapter-9-capstone" style={{
+  background: 'white',
+  color: '#4f46e5',
+  padding: '1rem 2rem',
+  borderRadius: '8px',
+  textDecoration: 'none',
+  fontWeight: 'bold',
+  fontSize: '1.1rem',
+  border: '2px solid #4f46e5',
+  transition: 'transform 0.2s'
+}}>
+🎯 View Capstone Project
+</a>
 </div>
 
 </div>
