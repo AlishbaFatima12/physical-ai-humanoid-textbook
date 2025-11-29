@@ -1,30 +1,347 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
+/* ============================================
+   CUSTOM THEME: Physical AI & Humanoid Robotics
+   ============================================ */
 
-/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  /* Primary Brand Colors - Indigo/Purple gradient */
+  --ifm-color-primary: #4f46e5;
+  --ifm-color-primary-dark: #4338ca;
+  --ifm-color-primary-darker: #3730a3;
+  --ifm-color-primary-darkest: #312e81;
+  --ifm-color-primary-light: #6366f1;
+  --ifm-color-primary-lighter: #818cf8;
+  --ifm-color-primary-lightest: #a5b4fc;
+
+  /* Secondary Colors */
+  --ifm-color-secondary: #10b981;
+  --ifm-color-success: #22c55e;
+  --ifm-color-info: #3b82f6;
+  --ifm-color-warning: #f59e0b;
+  --ifm-color-danger: #ef4444;
+
+  /* Typography */
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-heading-font-weight: 700;
+
+  /* Spacing */
+  --ifm-global-spacing: 1.5rem;
+  --ifm-navbar-height: 4rem;
+
+  /* Code blocks */
+  --docusaurus-highlighted-code-line-bg: rgba(79, 70, 229, 0.1);
+
+  /* Shadows */
+  --ifm-global-shadow-lw: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ifm-global-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --ifm-global-shadow-tl: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Dark mode theme */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #818cf8;
+  --ifm-color-primary-dark: #6366f1;
+  --ifm-color-primary-darker: #4f46e5;
+  --ifm-color-primary-darkest: #4338ca;
+  --ifm-color-primary-light: #a5b4fc;
+  --ifm-color-primary-lighter: #c7d2fe;
+  --ifm-color-primary-lightest: #e0e7ff;
+
+  --ifm-background-color: #0f172a;
+  --ifm-background-surface-color: #1e293b;
+  --docusaurus-highlighted-code-line-bg: rgba(129, 140, 248, 0.1);
+}
+
+/* ============================================
+   ENHANCED TYPOGRAPHY
+   ============================================ */
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--ifm-color-primary);
+  padding-bottom: 0.5rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  color: var(--ifm-color-primary-dark);
+}
+
+/* ============================================
+   ENHANCED CODE BLOCKS
+   ============================================ */
+
+code {
+  background: rgba(79, 70, 229, 0.1);
+  border: 1px solid rgba(79, 70, 229, 0.2);
+  border-radius: 4px;
+  padding: 0.2em 0.4em;
+  font-size: 0.9em;
+}
+
+pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.prism-code {
+  border-radius: 8px;
+  box-shadow: var(--ifm-global-shadow-md);
+}
+
+/* Code block title */
+div[class*='codeBlockTitle'] {
+  background: var(--ifm-color-primary);
+  color: white;
+  font-weight: 600;
+  border-radius: 8px 8px 0 0;
+}
+
+/* ============================================
+   CALLOUTS & ADMONITIONS
+   ============================================ */
+
+.admonition {
+  border-radius: 8px;
+  box-shadow: var(--ifm-global-shadow-md);
+  margin-bottom: 1.5rem;
+}
+
+.admonition-icon {
+  font-size: 1.5rem;
+}
+
+/* Info boxes */
+.admonition-info {
+  border-left: 4px solid var(--ifm-color-info);
+  background: rgba(59, 130, 246, 0.05);
+}
+
+/* Success boxes */
+.admonition-tip {
+  border-left: 4px solid var(--ifm-color-success);
+  background: rgba(34, 197, 94, 0.05);
+}
+
+/* Warning boxes */
+.admonition-warning {
+  border-left: 4px solid var(--ifm-color-warning);
+  background: rgba(245, 158, 11, 0.05);
+}
+
+/* Danger boxes */
+.admonition-danger {
+  border-left: 4px solid var(--ifm-color-danger);
+  background: rgba(239, 68, 68, 0.05);
+}
+
+/* ============================================
+   SIDEBAR ENHANCEMENTS
+   ============================================ */
+
+.menu__link {
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.menu__link:hover {
+  background: rgba(79, 70, 229, 0.1);
+  color: var(--ifm-color-primary);
+}
+
+.menu__link--active {
+  background: linear-gradient(90deg, rgba(79, 70, 229, 0.15), transparent);
+  border-left: 3px solid var(--ifm-color-primary);
+  font-weight: 600;
+}
+
+.menu__list-item-collapsible:hover {
+  background: rgba(79, 70, 229, 0.05);
+}
+
+/* ============================================
+   NAVBAR ENHANCEMENTS
+   ============================================ */
+
+.navbar {
+  box-shadow: var(--ifm-global-shadow-md);
+  backdrop-filter: blur(10px);
+}
+
+.navbar__title {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.navbar__link {
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navbar__link:hover {
+  color: var(--ifm-color-primary);
+}
+
+/* ============================================
+   TABLES
+   ============================================ */
+
+table {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+thead {
+  background: var(--ifm-color-primary);
+  color: white;
+}
+
+th {
+  font-weight: 600;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background: rgba(79, 70, 229, 0.03);
+}
+
+tr:hover {
+  background: rgba(79, 70, 229, 0.08);
+}
+
+/* ============================================
+   BUTTONS & LINKS
+   ============================================ */
+
+.button {
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.button--primary {
+  background: linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-light));
+  border: none;
+}
+
+.button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--ifm-global-shadow-md);
+}
+
+a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  color: var(--ifm-color-primary-dark);
+  text-decoration: underline;
+}
+
+/* ============================================
+   CUSTOM BADGES
+   ============================================ */
+
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.6em;
+  font-size: 0.85em;
+  font-weight: 600;
+  border-radius: 4px;
+  margin: 0 0.2em;
+}
+
+.badge--success {
+  background: var(--ifm-color-success);
+  color: white;
+}
+
+.badge--info {
+  background: var(--ifm-color-info);
+  color: white;
+}
+
+.badge--warning {
+  background: var(--ifm-color-warning);
+  color: white;
+}
+
+/* ============================================
+   DETAILS/SUMMARY (Expandable sections)
+   ============================================ */
+
+details {
+  border: 1px solid rgba(79, 70, 229, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: rgba(79, 70, 229, 0.02);
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  user-select: none;
+}
+
+summary:hover {
+  color: var(--ifm-color-primary-dark);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  color: #cbd5e1;
+}
+
+.footer__title {
+  color: white;
+  font-weight: 700;
+}
+
+.footer__link-item:hover {
+  color: var(--ifm-color-primary-lighter);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 996px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .navbar__title {
+    font-size: 1rem;
+  }
 }
