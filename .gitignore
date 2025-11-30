@@ -1,0 +1,76 @@
+# Node.js / Docusaurus
+node_modules/
+dist/
+build/
+.docusaurus/
+.cache/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.npm
+.yarn/
+.pnp.*
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Python (for ROS 2 testing scripts)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+ENV/
+env/
+*.egg-info/
+dist/
+*.egg
+
+# ROS 2 / C++
+build/
+install/
+log/
+*.o
+*.so
+*.a
+
+# Editor/IDE files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+
+# Temporary files
+*.tmp
+*.bak
+*.cache
+.backup/
+
+# Generated documentation
+docs/.docusaurus/
+docs/build/
+docs/node_modules/
+
+# Test coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# Lock files (keep for consistency)
+# Uncomment if you want to ignore lock files:
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
