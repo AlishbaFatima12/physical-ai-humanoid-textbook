@@ -50,8 +50,9 @@ export default function Chatbot({ user }) {
         `;
 
         popup.innerHTML = `
-          <h3 style="margin: 0 0 1rem 0; color: #4f46e5;">💬 Ask about selected text</h3>
-          <p style="margin: 0 0 1rem 0; color: #64748b; font-size: 0.9rem;">"${selection.substring(0, 80)}..."</p>
+          <h3 style="margin: 0 0 0.5rem 0; color: #4f46e5;">💬 Ask about selected text</h3>
+          <p style="margin: 0 0 1rem 0; color: #64748b; font-size: 0.85rem;">"${selection.substring(0, 60)}..."</p>
+          <p style="margin: 0 0 1rem 0; color: #f59e0b; font-size: 0.85rem; font-weight: 600;">👉 Click option, then press Enter to send</p>
           <div style="display: flex; flex-direction: column; gap: 0.5rem;">
             <button id="option-explain" style="padding: 0.75rem; background: #4f46e5; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">
               📖 Explain in 3-5 points
@@ -70,16 +71,11 @@ export default function Chatbot({ user }) {
 
         document.body.appendChild(popup);
 
-        const handleAction = async (prompt) => {
+        const handleAction = (prompt) => {
           popup.remove();
           setSelectedText(selection);
           setIsOpen(true);
           setInput(prompt);
-          // Auto-send after a short delay
-          setTimeout(() => {
-            const sendBtn = document.querySelector('[class*="chatbotInput"] button');
-            if (sendBtn) sendBtn.click();
-          }, 300);
         };
 
         document.getElementById('option-explain').onclick = () =>
@@ -88,12 +84,8 @@ export default function Chatbot({ user }) {
         document.getElementById('option-summarize').onclick = () =>
           handleAction(`Summarize in 3-5 points: "${selection}"`);
 
-        document.getElementById('option-custom').onclick = () => {
-          popup.remove();
-          setSelectedText(selection);
-          setIsOpen(true);
-          setInput(`About: "${selection.substring(0, 100)}..." - `);
-        };
+        document.getElementById('option-custom').onclick = () =>
+          handleAction(`About: "${selection.substring(0, 100)}..." - `);
 
         document.getElementById('option-cancel').onclick = () => popup.remove();
 
