@@ -55,6 +55,52 @@ This textbook provides a **complete, hands-on education** in building autonomous
 ✅ **Industry-Standard Tools** - ROS 2, Isaac Sim, Unity, PyTorch
 ✅ **Production-Ready Skills** including safety, testing, and deployment
 
+### 🤖 **NEW: AI-Powered Interactive Features**
+
+<table>
+<tr>
+<td width="25%"><strong>🧠 RAG Chatbot</strong></td>
+<td>
+<strong>Context-aware AI assistant</strong> that answers questions from the textbook using Retrieval-Augmented Generation<br/>
+• 3-5 bullet point answers (1-2 second responses)<br/>
+• Select any text and choose: Explain, Summarize, or Ask Custom Question<br/>
+• Conversation memory for follow-up questions
+</td>
+</tr>
+<tr>
+<td><strong>👤 Personalization</strong></td>
+<td>
+<strong>Instant content adaptation</strong> based on your skill level<br/>
+• Beginner: Simplified explanations with helpful tips<br/>
+• Intermediate: Standard technical content<br/>
+• Advanced: Deep insights with research paper references<br/>
+• Persistent across sessions
+</td>
+</tr>
+<tr>
+<td><strong>🌍 Urdu Translation</strong></td>
+<td>
+<strong>Fast multilingual support</strong> for accessibility<br/>
+• Translate any chapter to Urdu in 2-3 seconds<br/>
+• Technical terms preserved in English<br/>
+• RTL text direction support<br/>
+• Persistent state across navigation
+</td>
+</tr>
+<tr>
+<td><strong>🔐 Smart Auth</strong></td>
+<td>
+<strong>Personalized learning profiles</strong><br/>
+• Background questions (software/hardware experience)<br/>
+• JWT-based secure authentication<br/>
+• Save reading progress and preferences<br/>
+• Per-chapter customization
+</td>
+</tr>
+</table>
+
+**Tech Stack:** FastAPI + OpenAI GPT-3.5-turbo + Qdrant Vector DB + Neon PostgreSQL + React
+
 ---
 
 ## 💡 What You'll Learn
