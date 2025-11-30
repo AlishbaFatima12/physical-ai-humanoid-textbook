@@ -43,39 +43,31 @@ class RAGService:
             retrieved_context = f"User Selected Text:\n{context}\n\nRelated Content:\n{retrieved_context}"
 
         # 5. Build messages for OpenAI with personalization
-        system_content = f"""You are an expert AI assistant for the Physical AI & Humanoid Robotics textbook by Syeda Alishba Fatima.
+        system_content = f"""Answer in EXACTLY 3-5 bullet points. Use context: {retrieved_context}
 
-Use the following context from the textbook to answer the user's question:
-
-{retrieved_context}
-
-Provide clear, accurate answers based on the textbook content."""
+RULES:
+- ALWAYS return 3-5 points ONLY
+- NO paragraphs
+- Each point = 1 short sentence
+- Be direct and clear"""
 
         if user_background:
-            system_content += f"""
-
-Adapt your response for a user with this background:
-- Software skill level: {user_background.get('software_background', 'intermediate')}
-- Hardware experience: {user_background.get('hardware_background', 'hobby')}
-- Robotics experience: {user_background.get('robotics_experience', 'some')}
-
-Adjust technical depth and explanations accordingly."""
+            system_content += f""" Adapt for: {user_background.get('software_background', 'intermediate')} level."""
 
         messages = [{"role": "system", "content": system_content}]
 
-        # Add conversation history
-        if history:
-            messages.extend([{"role": msg.role, "content": msg.content} for msg in history])
+        # Add last 2 messages from history only
+        if history and len(history) > 0:
+            messages.extend([{"role": msg.role, "content": msg.content} for msg in history[-2:]])
 
-        # Add current query
         messages.append({"role": "user", "content": query})
 
-        # 6. Get response from OpenAI
+        # 6. Get response from OpenAI - FAST MODEL
         response = self.openai_client.chat.completions.create(
-            model="gpt-4-turbo-preview",
+            model="gpt-4o-mini",
             messages=messages,
-            temperature=0.7,
-            max_tokens=1000
+            temperature=0.3,
+            max_tokens=100
         )
 
         # 7. Format sources
