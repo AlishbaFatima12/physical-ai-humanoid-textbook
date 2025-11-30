@@ -28,6 +28,18 @@ export default function Chatbot({ user }) {
 
   // Listen for text selection - show options popup
   useEffect(() => {
+    window.handleTextSelection = (action, text) => {
+      setSelectedText(text);
+      setIsOpen(true);
+      if (action === 'explain') {
+        setInput(`Explain in 3-5 points: "${text}"`);
+      } else if (action === 'summarize') {
+        setInput(`Summarize in 3-5 points: "${text}"`);
+      } else if (action === 'custom') {
+        setInput(`About: "${text.substring(0, 100)}..." - `);
+      }
+    };
+
     const handleSelection = () => {
       const selection = window.getSelection().toString().trim();
       if (selection && selection.length > 10) {
@@ -49,45 +61,27 @@ export default function Chatbot({ user }) {
           max-width: 400px;
         `;
 
+        const escapedText = selection.replace(/"/g, '&quot;');
         popup.innerHTML = `
           <h3 style="margin: 0 0 0.5rem 0; color: #4f46e5;">💬 Ask about selected text</h3>
           <p style="margin: 0 0 1rem 0; color: #64748b; font-size: 0.85rem;">"${selection.substring(0, 60)}..."</p>
-          <p style="margin: 0 0 1rem 0; color: #f59e0b; font-size: 0.85rem; font-weight: 600;">👉 Click option, then press Enter to send</p>
           <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-            <button id="option-explain" style="padding: 0.75rem; background: #4f46e5; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">
+            <button onclick="window.handleTextSelection('explain', '${escapedText}'); document.getElementById('text-selection-popup').remove();" style="padding: 0.75rem; background: #4f46e5; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">
               📖 Explain in 3-5 points
             </button>
-            <button id="option-summarize" style="padding: 0.75rem; background: #7c3aed; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">
+            <button onclick="window.handleTextSelection('summarize', '${escapedText}'); document.getElementById('text-selection-popup').remove();" style="padding: 0.75rem; background: #7c3aed; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">
               📝 Summarize this
             </button>
-            <button id="option-custom" style="padding: 0.75rem; background: #06b6d4; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">
+            <button onclick="window.handleTextSelection('custom', '${escapedText}'); document.getElementById('text-selection-popup').remove();" style="padding: 0.75rem; background: #06b6d4; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">
               ❓ Ask custom question
             </button>
-            <button id="option-cancel" style="padding: 0.75rem; background: #e5e7eb; color: #374151; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">
+            <button onclick="document.getElementById('text-selection-popup').remove();" style="padding: 0.75rem; background: #e5e7eb; color: #374151; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">
               ✖ Cancel
             </button>
           </div>
         `;
 
         document.body.appendChild(popup);
-
-        const handleAction = (prompt) => {
-          popup.remove();
-          setSelectedText(selection);
-          setIsOpen(true);
-          setInput(prompt);
-        };
-
-        document.getElementById('option-explain').onclick = () =>
-          handleAction(`Explain in 3-5 points: "${selection}"`);
-
-        document.getElementById('option-summarize').onclick = () =>
-          handleAction(`Summarize in 3-5 points: "${selection}"`);
-
-        document.getElementById('option-custom').onclick = () =>
-          handleAction(`About: "${selection.substring(0, 100)}..." - `);
-
-        document.getElementById('option-cancel').onclick = () => popup.remove();
 
         setTimeout(() => {
           document.addEventListener('click', (e) => {
@@ -98,8 +92,11 @@ export default function Chatbot({ user }) {
     };
 
     document.addEventListener('mouseup', handleSelection);
-    return () => document.removeEventListener('mouseup', handleSelection);
-  }, [setIsOpen, setInput, setSelectedText]);
+    return () => {
+      document.removeEventListener('mouseup', handleSelection);
+      delete window.handleTextSelection;
+    };
+  }, []);
 
   const sendMessage = async () => {
     if (!input.trim()) return;
@@ -193,12 +190,12 @@ export default function Chatbot({ user }) {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
-              placeholder="Ask a question..."
+              onKeyPress={(e) => e.key === 'Enter' && !isLoading && sendMessage()}
+              placeholder={isLoading ? "Sending..." : "Ask a question..."}
               disabled={isLoading}
             />
             <button onClick={sendMessage} disabled={isLoading || !input.trim()}>
-              Send
+              {isLoading ? '⏳' : '📤'}
             </button>
           </div>
 
