@@ -1,9 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './styles.module.css';
 
-const BACKEND_URL = typeof window !== 'undefined' && window.location.hostname === 'alishbafatima12.github.io'
-  ? 'https://physical-ai-humanoid-textbook.onrender.com'
-  : 'http://localhost:8000';
+const BACKEND_URL = 'https://physical-ai-humanoid-textbook.onrender.com';
 
 export default function Chatbot({ user }) {
   const [messages, setMessages] = useState([

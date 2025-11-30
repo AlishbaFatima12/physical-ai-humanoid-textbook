@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 
-const BACKEND_URL = typeof window !== 'undefined' && window.location.hostname === 'alishbafatima12.github.io'
-  ? 'https://physical-ai-humanoid-textbook.onrender.com'
-  : 'http://localhost:8000';
+const BACKEND_URL = 'https://physical-ai-humanoid-textbook.onrender.com';
 
 export default function ContentControls() {
   const [isPersonalized, setIsPersonalized] = useState(false);
