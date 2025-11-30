@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 
 const BACKEND_URL = process.env.NODE_ENV === 'production'
-  ? 'https://your-backend-url.up.railway.app'  // UPDATE THIS after deploying backend
+  ? 'https://physical-ai-humanoid-textbook.onrender.com'
   : 'http://localhost:8000';
 
 export default function ContentControls() {
