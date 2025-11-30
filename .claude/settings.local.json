@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "Bash(git reset:*)",
+      "Bash(.specify/scripts/bash/create-new-feature.sh:*)",
+      "Bash(.specify/scripts/bash/setup-plan.sh:*)",
+      "SlashCommand(/sp.tasks)",
+      "Bash(.specify/scripts/bash/check-prerequisites.sh:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(if [ ! -f package.json ])",
+      "Bash(then npm init -y)",
+      "Bash(fi)",
+      "Bash(npm install:*)",
+      "Bash(git checkout:*)",
+      "Bash(git merge:*)",
+      "Bash(git push:*)",
+      "Bash(npm run build:*)",
+      "Bash(git config:*)",
+      "Bash(git rm:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(GIT_USER=AlishbaFatima12 npm run deploy:*)",
+      "Bash(pip install:*)",
+      "Bash(timeout /t 3)",
+      "Bash(python -m pip list:*)",
+      "Bash(findstr:*)",
+      "Bash(python -m uvicorn:*)",
+      "Bash(curl:*)",
+      "Bash(dir:*)",
+      "Bash(npm start)",
+      "Bash(cat:*)",
+      "Bash(railway:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
