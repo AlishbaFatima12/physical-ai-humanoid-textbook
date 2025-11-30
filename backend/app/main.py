@@ -320,23 +320,22 @@ Return ONLY the adapted content, preserving markdown formatting."""
 
 @app.post("/translate")
 async def translate_content(request: TranslateRequest):
-    """Translate content to Urdu - INSTANT with gpt-4o-mini"""
+    """Translate content to Urdu - FAST"""
     try:
         from openai import OpenAI
 
         client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-        system_prompt = """Translate to Urdu in bullet points (3-5 points max). Keep technical terms in English."""
+        system_prompt = """Translate to Urdu in 3-5 bullet points. Keep technical terms in English."""
 
         response = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": system_prompt},
-                {"role": "user", "content": request.content[:2000]}
+                {"role": "user", "content": request.content[:1500]}
             ],
             temperature=0.3,
-            max_tokens=150,
-            stream=False
+            max_tokens=80
         )
 
         return {

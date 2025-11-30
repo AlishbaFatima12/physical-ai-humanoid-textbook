@@ -64,10 +64,10 @@ RULES:
 
         # 6. Get response from OpenAI - FAST MODEL
         response = self.openai_client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="gpt-3.5-turbo",
             messages=messages,
             temperature=0.3,
-            max_tokens=100
+            max_tokens=50
         )
 
         # 7. Format sources
