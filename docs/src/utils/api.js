@@ -6,8 +6,8 @@
  * 2. Fall back to production Render backend
  */
 
-// Production backend URL
-const PRODUCTION_URL = 'https://physical-ai-humanoid-textbook.onrender.com';
+// Production backend URL (matches render.yaml service name)
+const PRODUCTION_URL = 'https://physical-ai-humanoid-textbook-backend.onrender.com';
 
 // Local backend URL
 const LOCAL_URL = 'http://localhost:8000';
