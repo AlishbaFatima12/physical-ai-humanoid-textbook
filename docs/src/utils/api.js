@@ -7,7 +7,7 @@
  */
 
 // Production backend URL
-const PRODUCTION_URL = 'https://physical-ai-humanoid-textbook-backend.onrender.com';
+const PRODUCTION_URL = 'https://physical-ai-humanoid-textbook.onrender.com';
 
 // Local backend URL
 const LOCAL_URL = 'http://localhost:8000';
