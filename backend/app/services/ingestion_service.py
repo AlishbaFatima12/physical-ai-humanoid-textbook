@@ -7,7 +7,7 @@ import glob
 from pathlib import Path
 from qdrant_client import QdrantClient
 from qdrant_client.http import models
-from sentence_transformers import SentenceTransformer
+from openai import OpenAI
 import re
 
 class IngestionService:
@@ -16,8 +16,8 @@ class IngestionService:
             url=os.getenv("QDRANT_URL"),
             api_key=os.getenv("QDRANT_API_KEY")
         )
+        self.openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
         self.collection_name = "textbook_content"
-        self.embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
 
     async def ingest_textbook_content(self):
         """
@@ -38,7 +38,7 @@ class IngestionService:
         self.qdrant_client.create_collection(
             collection_name=self.collection_name,
             vectors_config=models.VectorParams(
-                size=384,  # all-MiniLM-L6-v2 embedding size
+                size=1536,  # text-embedding-3-small embedding size
                 distance=models.Distance.COSINE
             )
         )
@@ -59,26 +59,32 @@ class IngestionService:
             # Split into chunks (simple by paragraphs)
             chunks = self._split_into_chunks(content)
 
-            # Create embeddings and points
-            for chunk in chunks:
-                if len(chunk.strip()) < 50:  # Skip very small chunks
-                    continue
+            # Filter out very small chunks
+            valid_chunks = [chunk for chunk in chunks if len(chunk.strip()) >= 50]
 
-                embedding = self.embedding_model.encode(chunk).tolist()
-
-                points.append(
-                    models.PointStruct(
-                        id=point_id,
-                        vector=embedding,
-                        payload={
-                            "content": chunk,
-                            "chapter": chapter_num,
-                            "title": self._extract_title(chunk),
-                            "file": filename
-                        }
-                    )
+            # Batch create embeddings using OpenAI API (memory efficient)
+            if valid_chunks:
+                embeddings_response = self.openai_client.embeddings.create(
+                    model="text-embedding-3-small",
+                    input=valid_chunks
                 )
-                point_id += 1
+
+                for i, chunk in enumerate(valid_chunks):
+                    embedding = embeddings_response.data[i].embedding
+
+                    points.append(
+                        models.PointStruct(
+                            id=point_id,
+                            vector=embedding,
+                            payload={
+                                "content": chunk,
+                                "chapter": chapter_num,
+                                "title": self._extract_title(chunk),
+                                "file": filename
+                            }
+                        )
+                    )
+                    point_id += 1
 
         # Upload to Qdrant
         self.qdrant_client.upsert(
