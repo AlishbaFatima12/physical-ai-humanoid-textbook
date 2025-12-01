@@ -18,7 +18,7 @@ class RAGService:
         self.collection_name = "textbook_content"
         self.embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
 
-    async def get_response(self, query: str, context: str = None, history: list = None, user_background: dict = None):
+    async def get_response(self, query: str, context: str = None, history: list = None, user_background: dict = None, max_tokens: int = 150, temperature: float = 0.2):
         """
         Get RAG response for user query with optional personalization
         """
@@ -66,8 +66,8 @@ RULES:
         response = self.openai_client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=messages,
-            temperature=0.3,
-            max_tokens=50
+            temperature=temperature,
+            max_tokens=max_tokens
         )
 
         # 7. Format sources

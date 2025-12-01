@@ -51,6 +51,8 @@ class ChatRequest(BaseModel):
     context: Optional[str] = None
     conversation_history: Optional[List[ChatMessage]] = []
     session_id: Optional[str] = None
+    max_tokens: Optional[int] = 150
+    temperature: Optional[float] = 0.2
 
 class ChatResponse(BaseModel):
     response: str
@@ -146,7 +148,9 @@ async def chat(
             query=request.message,
             context=request.context,
             history=request.conversation_history,
-            user_background=user_background
+            user_background=user_background,
+            max_tokens=request.max_tokens,
+            temperature=request.temperature
         )
 
         # Save conversation to database

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './styles.module.css';
-
-const BACKEND_URL = 'https://physical-ai-humanoid-textbook.onrender.com';
+import { apiRequest, getBackendUrl } from '../../utils/api';
 
 export default function ContentControls() {
   const [isPersonalized, setIsPersonalized] = useState(false);
@@ -44,13 +43,9 @@ export default function ContentControls() {
     if (!token) return;
 
     try {
-      const response = await fetch(`${BACKEND_URL}/chapters/${path}`, {
-        headers: getAuthHeaders()
+      const data = await apiRequest(`/chapters/${path}`, {
+        method: 'GET'
       });
-
-      if (!response.ok) return;
-
-      const data = await response.json();
       if (data.status === 'success' && data.chapter) {
         let retries = 0;
         const waitForArticle = setInterval(() => {
@@ -82,12 +77,8 @@ export default function ContentControls() {
   const saveChapter = async (personalizedContent, translatedContent) => {
     try {
       const content = getPageContent();
-      await fetch(`${BACKEND_URL}/chapters/save`, {
+      await apiRequest('/chapters/save', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          ...getAuthHeaders()
-        },
         body: JSON.stringify({
           chapter_path: chapterPath,
           original_content: originalContent || content,
@@ -199,7 +190,10 @@ export default function ContentControls() {
   };
 
   const handleTranslate = async () => {
+    console.log('🌍 Translate button clicked!', { isTranslated });
+
     if (isTranslated) {
+      console.log('↩️ Restoring original content');
       if (originalContent) {
         setPageContent(originalContent);
         setIsTranslated(false);
@@ -210,6 +204,13 @@ export default function ContentControls() {
     }
 
     const content = getPageContent();
+    console.log('📄 Got page content, length:', content?.length || 0);
+
+    if (!content || content.trim().length === 0) {
+      alert('⚠️ No content found to translate. Please wait for page to fully load.');
+      return;
+    }
+
     if (!originalContent) setOriginalContent(content);
 
     const instantHTML = `
@@ -223,49 +224,64 @@ export default function ContentControls() {
     setLoading(true);
 
     try {
-      const cachedResponse = await fetch(`${BACKEND_URL}/chapters/${chapterPath}`, {
-        headers: getAuthHeaders()
-      });
-
-      if (cachedResponse.ok) {
-        const cachedData = await cachedResponse.json();
-        if (cachedData.status === 'success' && cachedData.chapter?.translated_content) {
+      // Try to get cached translation (will fail if not logged in, which is fine)
+      try {
+        const cachedData = await apiRequest(`/chapters/${chapterPath}`, { method: 'GET' });
+        if (cachedData?.status === 'success' && cachedData.chapter?.translated_content) {
+          console.log('✅ Found cached translation');
           setPageContent(cachedData.chapter.translated_content);
           setLoading(false);
           return;
         }
+      } catch (cacheError) {
+        console.log('ℹ️ No cached translation (this is normal)');
       }
 
+      // Extract text content
       const tempDiv = document.createElement('div');
       tempDiv.innerHTML = content;
       const textContent = tempDiv.textContent || tempDiv.innerText;
+      const contentToTranslate = textContent.substring(0, 2000).trim();
 
-      const response = await fetch(`${BACKEND_URL}/translate`, {
+      console.log('📤 Sending to translate API, length:', contentToTranslate.length);
+
+      const data = await apiRequest('/translate', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          content: textContent.substring(0, 2000),
+          content: contentToTranslate,
           target_language: 'ur'
         })
       });
 
-      const data = await response.json();
+      console.log('📥 Translation response:', data);
+
       if (data.translated_content) {
         const fullHTML = `
           <div class="${styles.translatedBanner}">
             🌍 Translated to Urdu
           </div>
-          <div dir="rtl" lang="ur" style="padding: 1rem; line-height: 2;">
-            ${data.translated_content.replace(/\n/g, '<br>')}
+          <div dir="rtl" lang="ur" style="padding: 1rem; line-height: 2; font-size: 1.1rem; background: #f8f9fa; border-radius: 8px;">
+            ${data.translated_content.replace(/\\n/g, '<br>')}
           </div>
         `;
 
         setPageContent(fullHTML);
-        saveChapter(null, fullHTML);
+        console.log('✅ Translation displayed successfully');
+
+        // Try to save (will fail if not logged in, which is fine)
+        try {
+          await saveChapter(null, fullHTML);
+        } catch (saveError) {
+          console.log('ℹ️ Could not save translation (login required)');
+        }
+      } else {
+        console.error('❌ No translated_content in response');
+        alert('Translation failed: No content received from server');
       }
       setLoading(false);
     } catch (error) {
-      console.error('Translation error:', error);
+      console.error('❌ Translation error:', error);
+      alert(`Translation failed: ${error.message || 'Unknown error'}`);
       setPageContent(content);
       setIsTranslated(false);
       setLoading(false);
@@ -279,9 +295,8 @@ export default function ContentControls() {
       setIsTranslated(false);
 
       try {
-        await fetch(`${BACKEND_URL}/chapters/${chapterPath}`, {
-          method: 'DELETE',
-          headers: getAuthHeaders()
+        await apiRequest(`/chapters/${chapterPath}`, {
+          method: 'DELETE'
         });
       } catch (error) {
         console.error('Error resetting chapter:', error);

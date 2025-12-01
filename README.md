@@ -101,6 +101,14 @@ This textbook provides a **complete, hands-on education** in building autonomous
 
 **Tech Stack:** FastAPI + OpenAI GPT-3.5-turbo + Qdrant Vector DB + Neon PostgreSQL + React
 
+### 🆕 **Recent Updates** (December 2025)
+
+✅ **Enhanced Translation** - Improved Urdu translation with RTL formatting and better styling
+✅ **Robust Error Handling** - All AI features now include detailed error messages and logging
+✅ **Smart Backend Detection** - Automatically switches between local and production backends
+✅ **Fixed Navigation** - All internal links now work correctly
+✅ **Production Ready** - Successfully deployed to GitHub Pages with full functionality
+
 ---
 
 ## 💡 What You'll Learn
@@ -375,6 +383,6 @@ For questions or feedback:
 
 ---
 
-*Built with ❤️ using Docusaurus, ROS 2, and AI • Last Updated: 2025*
+*Built with ❤️ using Docusaurus, ROS 2, and AI • Last Updated: December 1, 2025*
 
 </div>
