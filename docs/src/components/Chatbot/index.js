@@ -14,6 +14,7 @@ export default function Chatbot({ user }) {
   const [isLoading, setIsLoading] = useState(false);
   const [selectedText, setSelectedText] = useState('');
   const messagesEndRef = useRef(null);
+  const pendingTextRef = useRef(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -22,6 +23,24 @@ export default function Chatbot({ user }) {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  // Handle pending text when chatbot opens
+  useEffect(() => {
+    if (isOpen && pendingTextRef.current) {
+      console.log('📝 Setting input with pending text:', pendingTextRef.current.substring(0, 50) + '...');
+      setInput(pendingTextRef.current);
+      pendingTextRef.current = null;
+
+      // Focus input field
+      setTimeout(() => {
+        const inputField = document.querySelector('[data-chatbot-input]');
+        if (inputField) {
+          inputField.focus();
+          console.log('✅ Input field focused');
+        }
+      }, 100);
+    }
+  }, [isOpen]);
 
   // Listen for text selection - show Ask button
   useEffect(() => {
@@ -65,11 +84,20 @@ export default function Chatbot({ user }) {
         button.onmouseover = () => button.style.transform = 'scale(1.05)';
         button.onmouseout = () => button.style.transform = 'scale(1)';
 
-        button.onclick = () => {
-          console.log('💬 Ask button clicked, opening chatbot with selected text');
+        button.onclick = (e) => {
+          e.stopPropagation();
+          console.log('💬 Ask button clicked! Opening chatbot...');
+          console.log('📄 Selected text:', selection.substring(0, 50) + '...');
+
+          // Store text in ref to be set when chatbot opens
+          const textToAsk = selection.substring(0, 200);
+          pendingTextRef.current = `Selected text: "${textToAsk}${selection.length > 200 ? '...' : ''}"\n\nWhat do you want to know about it?`;
+
+          // Store full selection and open chatbot
           setSelectedText(selection);
           setIsOpen(true);
-          setInput(`What do you want to know about: "${selection.substring(0, 100)}${selection.length > 100 ? '...' : ''}"?`);
+          console.log('✅ Chatbot opening, text will be inserted via useEffect');
+
           button.remove();
         };
 
@@ -194,6 +222,7 @@ export default function Chatbot({ user }) {
               onKeyPress={(e) => e.key === 'Enter' && !isLoading && sendMessage()}
               placeholder={isLoading ? "Sending..." : "Ask a question..."}
               disabled={isLoading}
+              data-chatbot-input
             />
             <button onClick={sendMessage} disabled={isLoading || !input.trim()}>
               {isLoading ? '⏳' : '📤'}
