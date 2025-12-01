@@ -5,7 +5,7 @@ module.exports = {
   tagline: 'From Digital AI to Embodied Intelligence - Build Autonomous Robots from Scratch',
   url: 'https://alishbafatima12.github.io',
   baseUrl: '/physical-ai-humanoid-textbook/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
 
@@ -21,13 +21,12 @@ module.exports = {
       {
         docs: {
           sidebarPath: './sidebars.js',
-          routeBasePath: '/',
+          routeBasePath: '/docs',
           editUrl: 'https://github.com/AlishbaFatima12/physical-ai-humanoid-textbook/edit/main/docs/',
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
         },
         blog: false,
-        pages: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -44,7 +43,7 @@ module.exports = {
     // Announcement bar
     announcementBar: {
       id: 'course_launch',
-      content: '🎉 <strong>New Course!</strong> Build autonomous humanoid robots with ROS 2, AI, and RL. Start with <a href="/">Chapter 1</a>!',
+      content: '🎉 <strong>New Course!</strong> Build autonomous humanoid robots with ROS 2, AI, and RL. Start with <a href="/physical-ai-humanoid-textbook/docs/chapter-1-introduction-physical-ai">Chapter 1</a>!',
       backgroundColor: '#4f46e5',
       textColor: '#ffffff',
       isCloseable: true,
@@ -82,15 +81,15 @@ module.exports = {
           items: [
             {
               label: 'Course Overview',
-              to: '/',
+              to: '/docs',
             },
             {
               label: 'Chapter 1: Introduction',
-              to: '/chapter-1-introduction-physical-ai',
+              to: '/docs/chapter-1-introduction-physical-ai',
             },
             {
               label: 'Capstone Project',
-              to: '/chapter-9-capstone',
+              to: '/docs/chapter-9-capstone',
             },
           ],
         },

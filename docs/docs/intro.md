@@ -135,7 +135,7 @@ A comprehensive hands-on textbook for building autonomous humanoid robots from s
 
 {/* CTA Buttons */}
 <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
-<a href="/chapter-1-introduction-physical-ai" style={{
+<a href="/physical-ai-humanoid-textbook/docs/chapter-1-introduction-physical-ai" style={{
   background: '#4f46e5',
   color: 'white',
   padding: '1rem 2rem',
@@ -148,7 +148,7 @@ A comprehensive hands-on textbook for building autonomous humanoid robots from s
 }}>
 🚀 Start Learning (Chapter 1)
 </a>
-<a href="chapter-9-capstone" style={{
+<a href="/physical-ai-humanoid-textbook/docs/chapter-9-capstone" style={{
   background: 'white',
   color: '#4f46e5',
   padding: '1rem 2rem',
@@ -297,7 +297,7 @@ cd humanoid-robotics-course
 ```
 
 ### Step 2: Start with Chapter 1
-Begin your journey with [Chapter 1: Introduction to Physical AI](./chapter-1-introduction-physical-ai)
+Begin your journey with [Chapter 1: Introduction to Physical AI](/physical-ai-humanoid-textbook/docs/chapter-1-introduction-physical-ai)
 
 ### Step 3: Join the Community
 - 💬 Discussion Forum: [Link]
@@ -384,7 +384,7 @@ Special thanks to all contributors and early testers who helped refine this curr
 
 Start your journey into Physical AI:
 
-👉 **[Chapter 1: Introduction to Physical AI →](./chapter-1-introduction-physical-ai)**
+👉 **[Chapter 1: Introduction to Physical AI →](/physical-ai-humanoid-textbook/docs/chapter-1-introduction-physical-ai)**
 
 ---
 

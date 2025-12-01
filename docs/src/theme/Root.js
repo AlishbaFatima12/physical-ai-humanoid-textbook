@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from '@docusaurus/router';
 import Chatbot from '../components/Chatbot';
 import AuthModal from '../components/AuthModal';
 import ContentControls from '../components/ContentControls';
@@ -8,6 +9,21 @@ import styles from './Root.module.css';
 export default function Root({children}) {
   const [user, setUser] = useState(null);
   const [showAuthModal, setShowAuthModal] = useState(false);
+  const location = useLocation();
+
+  // Check if we're on a docs page (NOT the landing page)
+  // Show features on all pages except the root landing page
+  const isLandingPage = location.pathname === '/' ||
+                        location.pathname === '/physical-ai-humanoid-textbook/' ||
+                        location.pathname === '/physical-ai-humanoid-textbook';
+  const isDocsPage = !isLandingPage;
+
+  // Debug log
+  useEffect(() => {
+    console.log('Current pathname:', location.pathname);
+    console.log('Is landing page:', isLandingPage);
+    console.log('Is docs page (show features):', isDocsPage);
+  }, [location.pathname, isLandingPage, isDocsPage]);
 
   useEffect(() => {
     // Check if user is logged in
@@ -45,14 +61,14 @@ export default function Root({children}) {
         )}
       </div>
 
-      {/* Content Controls (Personalize & Translate) */}
-      <ContentControls />
+      {/* Content Controls (Personalize & Translate) - ONLY on chapter pages */}
+      {isDocsPage && <ContentControls />}
 
       {/* Main content */}
       {children}
 
-      {/* Chatbot */}
-      <Chatbot user={user} />
+      {/* Chatbot - ONLY on chapter pages */}
+      {isDocsPage && <Chatbot user={user} />}
 
       {/* Auth Modal */}
       <AuthModal

@@ -30,7 +30,10 @@
       "Bash(dir:*)",
       "Bash(npm start)",
       "Bash(cat:*)",
-      "Bash(railway:*)"
+      "Bash(railway:*)",
+      "Bash(gh run list:*)",
+      "Bash(set \"GIT_USER=AlishbaFatima12\")",
+      "Bash(npm run deploy)"
     ],
     "deny": [],
     "ask": []

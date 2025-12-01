@@ -38,7 +38,7 @@ def init_db():
     """
     try:
         Base.metadata.create_all(bind=engine)
-        print("✅ Database initialized successfully")
+        print("Database initialized successfully")
     except Exception as e:
-        print(f"⚠️ Database initialization failed: {e}")
-        print("⚠️ App will run without database features (auth, history)")
+        print(f"Warning: Database initialization failed: {e}")
+        print("App will run without database features (auth, history)")

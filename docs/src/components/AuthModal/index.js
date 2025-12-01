@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styles from './styles.module.css';
-
-const BACKEND_URL = 'https://physical-ai-humanoid-textbook.onrender.com';
+import { apiRequest } from '../../utils/api';
 
 export default function AuthModal({ isOpen, onClose, onLogin }) {
   const [isSignup, setIsSignup] = useState(false);
@@ -29,15 +28,12 @@ export default function AuthModal({ isOpen, onClose, onLogin }) {
     };
 
     try {
-      const response = await fetch(`${BACKEND_URL}${endpoint}`, {
+      const data = await apiRequest(endpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
 
-      const data = await response.json();
-
-      if (response.ok) {
+      if (data.access_token) {
         localStorage.setItem('authToken', data.access_token);
         localStorage.setItem('user', JSON.stringify(data.user));
         onLogin(data.user);
@@ -47,6 +43,7 @@ export default function AuthModal({ isOpen, onClose, onLogin }) {
       }
     } catch (err) {
       setError('Connection error. Make sure backend is running.');
+      console.error('Auth error:', err);
     } finally {
       setLoading(false);
     }

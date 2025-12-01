@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './styles.module.css';
-
-const BACKEND_URL = 'https://physical-ai-humanoid-textbook.onrender.com';
+import { apiRequest } from '../../utils/api';
 
 export default function Chatbot({ user }) {
   const [messages, setMessages] = useState([
@@ -24,75 +23,83 @@ export default function Chatbot({ user }) {
     scrollToBottom();
   }, [messages]);
 
-  // Listen for text selection - show options popup
+  // Listen for text selection - show Ask button
   useEffect(() => {
-    window.handleTextSelection = (action, text) => {
-      setSelectedText(text);
-      setIsOpen(true);
-      if (action === 'explain') {
-        setInput(`Explain in 3-5 points: "${text}"`);
-      } else if (action === 'summarize') {
-        setInput(`Summarize in 3-5 points: "${text}"`);
-      } else if (action === 'custom') {
-        setInput(`About: "${text.substring(0, 100)}..." - `);
-      }
-    };
 
     const handleSelection = () => {
       const selection = window.getSelection().toString().trim();
+      console.log('📝 Text selected, length:', selection?.length || 0);
+
       if (selection && selection.length > 10) {
-        const existingPopup = document.getElementById('text-selection-popup');
-        if (existingPopup) existingPopup.remove();
+        console.log('✅ Selection valid, creating Ask button');
+        const existingButton = document.getElementById('text-selection-ask-button');
+        if (existingButton) {
+          console.log('🗑️ Removing existing button');
+          existingButton.remove();
+        }
 
-        const popup = document.createElement('div');
-        popup.id = 'text-selection-popup';
-        popup.style.cssText = `
+        // Get selection position for button placement
+        const range = window.getSelection().getRangeAt(0);
+        const rect = range.getBoundingClientRect();
+
+        const button = document.createElement('button');
+        button.id = 'text-selection-ask-button';
+        button.textContent = '💬 Ask';
+        button.style.cssText = `
           position: fixed;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          background: white;
-          border-radius: 12px;
-          box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-          padding: 1.5rem;
+          top: ${rect.top - 45}px;
+          left: ${rect.left + (rect.width / 2) - 35}px;
+          background: linear-gradient(135deg, #4f46e5, #7c3aed);
+          color: white;
+          border: none;
+          border-radius: 8px;
+          padding: 0.5rem 1rem;
+          font-weight: 600;
+          font-size: 0.9rem;
+          cursor: pointer;
           z-index: 10001;
-          max-width: 400px;
+          box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+          transition: transform 0.2s;
         `;
 
-        const escapedText = selection.replace(/"/g, '&quot;');
-        popup.innerHTML = `
-          <h3 style="margin: 0 0 0.5rem 0; color: #4f46e5;">💬 Ask about selected text</h3>
-          <p style="margin: 0 0 1rem 0; color: #64748b; font-size: 0.85rem;">"${selection.substring(0, 60)}..."</p>
-          <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-            <button onclick="window.handleTextSelection('explain', '${escapedText}'); document.getElementById('text-selection-popup').remove();" style="padding: 0.75rem; background: #4f46e5; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">
-              📖 Explain in 3-5 points
-            </button>
-            <button onclick="window.handleTextSelection('summarize', '${escapedText}'); document.getElementById('text-selection-popup').remove();" style="padding: 0.75rem; background: #7c3aed; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">
-              📝 Summarize this
-            </button>
-            <button onclick="window.handleTextSelection('custom', '${escapedText}'); document.getElementById('text-selection-popup').remove();" style="padding: 0.75rem; background: #06b6d4; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">
-              ❓ Ask custom question
-            </button>
-            <button onclick="document.getElementById('text-selection-popup').remove();" style="padding: 0.75rem; background: #e5e7eb; color: #374151; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">
-              ✖ Cancel
-            </button>
-          </div>
-        `;
+        button.onmouseover = () => button.style.transform = 'scale(1.05)';
+        button.onmouseout = () => button.style.transform = 'scale(1)';
 
-        document.body.appendChild(popup);
+        button.onclick = () => {
+          console.log('💬 Ask button clicked, opening chatbot with selected text');
+          setSelectedText(selection);
+          setIsOpen(true);
+          setInput(`What do you want to know about: "${selection.substring(0, 100)}${selection.length > 100 ? '...' : ''}"?`);
+          button.remove();
+        };
+
+        document.body.appendChild(button);
+        console.log('✅ Ask button added to DOM');
+
+        // Remove button after 5 seconds or when clicking elsewhere
+        setTimeout(() => {
+          if (button.parentNode) {
+            console.log('⏱️ Ask button removed (timeout)');
+            button.remove();
+          }
+        }, 5000);
 
         setTimeout(() => {
           document.addEventListener('click', (e) => {
-            if (!popup.contains(e.target)) popup.remove();
+            if (e.target !== button && button.parentNode) {
+              console.log('🗑️ Ask button removed (clicked outside)');
+              button.remove();
+            }
           }, { once: true });
         }, 100);
+      } else if (selection) {
+        console.log('⚠️ Selection too short (need > 10 chars)');
       }
     };
 
     document.addEventListener('mouseup', handleSelection);
     return () => {
       document.removeEventListener('mouseup', handleSelection);
-      delete window.handleTextSelection;
     };
   }, []);
 
@@ -109,21 +116,16 @@ export default function Chatbot({ user }) {
       const contextText = selectedText || window.getSelection().toString();
       setSelectedText('');
 
-      const authToken = localStorage.getItem('authToken');
-      const headers = { 'Content-Type': 'application/json' };
-      if (authToken) headers['Authorization'] = `Bearer ${authToken}`;
-
-      const response = await fetch(`${BACKEND_URL}/chat`, {
+      const data = await apiRequest('/chat', {
         method: 'POST',
-        headers,
         body: JSON.stringify({
           message: currentInput,
           context: contextText || null,
-          conversation_history: messages.slice(-4)
+          conversation_history: messages.slice(-4),
+          max_tokens: 150,
+          temperature: 0.2
         })
       });
-
-      const data = await response.json();
 
       setMessages(prev => [...prev, {
         role: 'assistant',
@@ -131,9 +133,10 @@ export default function Chatbot({ user }) {
         sources: data.sources
       }]);
     } catch (error) {
+      console.error('Chat error:', error);
       setMessages(prev => [...prev, {
         role: 'assistant',
-        content: 'Error: Backend server not running'
+        content: 'Error: Could not connect to backend. Make sure the backend server is running at http://localhost:8000'
       }]);
     } finally {
       setIsLoading(false);
