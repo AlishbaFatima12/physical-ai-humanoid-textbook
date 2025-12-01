@@ -6,7 +6,6 @@ import os
 from openai import OpenAI
 from qdrant_client import QdrantClient
 from qdrant_client.http import models
-from sentence_transformers import SentenceTransformer
 
 class RAGService:
     def __init__(self):
@@ -16,14 +15,17 @@ class RAGService:
             api_key=os.getenv("QDRANT_API_KEY")
         )
         self.collection_name = "textbook_content"
-        self.embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
 
     async def get_response(self, query: str, context: str = None, history: list = None, user_background: dict = None, max_tokens: int = 150, temperature: float = 0.2):
         """
         Get RAG response for user query with optional personalization
         """
-        # 1. Get query embedding
-        query_vector = self.embedding_model.encode(query).tolist()
+        # 1. Get query embedding using OpenAI API (memory efficient)
+        embedding_response = self.openai_client.embeddings.create(
+            model="text-embedding-3-small",
+            input=query
+        )
+        query_vector = embedding_response.data[0].embedding
 
         # 2. Search similar content in Qdrant
         search_results = self.qdrant_client.query_points(
