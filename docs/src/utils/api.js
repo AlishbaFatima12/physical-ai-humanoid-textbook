@@ -73,32 +73,45 @@ export async function getBackendUrl() {
  * Make an API request to the backend
  */
 export async function apiRequest(endpoint, options = {}) {
-  const baseUrl = await getBackendUrl();
-  const url = `${baseUrl}${endpoint}`;
+  try {
+    const baseUrl = await getBackendUrl();
+    const url = `${baseUrl}${endpoint}`;
 
-  const defaultHeaders = {
-    'Content-Type': 'application/json',
-  };
+    console.log('🌐 Making API request to:', url);
 
-  // Add auth token if available
-  const authToken = localStorage.getItem('authToken');
-  if (authToken) {
-    defaultHeaders['Authorization'] = `Bearer ${authToken}`;
+    const defaultHeaders = {
+      'Content-Type': 'application/json',
+    };
+
+    // Add auth token if available
+    const authToken = localStorage.getItem('authToken');
+    if (authToken) {
+      defaultHeaders['Authorization'] = `Bearer ${authToken}`;
+    }
+
+    const response = await fetch(url, {
+      ...options,
+      headers: {
+        ...defaultHeaders,
+        ...options.headers,
+      },
+    });
+
+    console.log('📡 Response status:', response.status, response.statusText);
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      console.error('❌ API Error:', errorData);
+      throw new Error(errorData.detail || `API request failed: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    console.log('✅ API Success:', Object.keys(data));
+    return data;
+  } catch (error) {
+    console.error('🚨 API Request Error:', error);
+    throw error;
   }
-
-  const response = await fetch(url, {
-    ...options,
-    headers: {
-      ...defaultHeaders,
-      ...options.headers,
-    },
-  });
-
-  if (!response.ok) {
-    throw new Error(`API request failed: ${response.statusText}`);
-  }
-
-  return response.json();
 }
 
 /**
