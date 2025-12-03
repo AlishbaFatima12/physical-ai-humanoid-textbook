@@ -13,8 +13,8 @@ export default function Chatbot({ user }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedText, setSelectedText] = useState('');
+  const [pendingText, setPendingText] = useState('');
   const messagesEndRef = useRef(null);
-  const pendingTextRef = useRef(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -24,30 +24,45 @@ export default function Chatbot({ user }) {
     scrollToBottom();
   }, [messages]);
 
-  // Handle pending text when chatbot opens
+  // Handle pending text when it changes
   useEffect(() => {
-    if (isOpen && pendingTextRef.current) {
-      console.log('📝 Setting input with pending text:', pendingTextRef.current.substring(0, 50) + '...');
-      setInput(pendingTextRef.current);
-      pendingTextRef.current = null;
+    if (pendingText) {
+      console.log('📝 Setting input with pending text:', pendingText.substring(0, 50) + '...');
 
-      // Focus input field
+      // Ensure chatbot is open
+      if (!isOpen) {
+        setIsOpen(true);
+      }
+
+      // Use a short delay to ensure chatbot is rendered
       setTimeout(() => {
-        const inputField = document.querySelector('[data-chatbot-input]');
-        if (inputField) {
-          inputField.focus();
-          console.log('✅ Input field focused');
-        }
+        setInput(pendingText);
+        console.log('✅ Input field populated with:', pendingText.substring(0, 50) + '...');
+        setPendingText(''); // Clear pending text
+
+        // Focus input field
+        setTimeout(() => {
+          const inputField = document.querySelector('[data-chatbot-input]');
+          if (inputField) {
+            inputField.focus();
+            console.log('✅ Input field focused');
+          }
+        }, 50);
       }, 100);
     }
-  }, [isOpen]);
+  }, [pendingText, isOpen]);
 
   // Listen for text selection - show Ask button
   useEffect(() => {
 
     const handleSelection = () => {
-      const selection = window.getSelection().toString().trim();
+      // Try to get selection from article first (Docusaurus content), then fallback to window
+      const articleDoc = document.querySelector('article')?.ownerDocument || document;
+      const sel = articleDoc.getSelection() || window.getSelection();
+      const selection = sel?.toString().trim() || '';
+
       console.log('📝 Text selected, length:', selection?.length || 0);
+      console.log('📝 Selection source:', articleDoc === document ? 'window' : 'article');
 
       if (selection && selection.length > 10) {
         console.log('✅ Selection valid, creating Ask button');
@@ -58,7 +73,11 @@ export default function Chatbot({ user }) {
         }
 
         // Get selection position for button placement
-        const range = window.getSelection().getRangeAt(0);
+        const range = sel?.rangeCount ? sel.getRangeAt(0) : null;
+        if (!range) {
+          console.log('⚠️ No range found, cannot position button');
+          return;
+        }
         const rect = range.getBoundingClientRect();
 
         const button = document.createElement('button');
@@ -87,16 +106,41 @@ export default function Chatbot({ user }) {
         button.onclick = (e) => {
           e.stopPropagation();
           console.log('💬 Ask button clicked! Opening chatbot...');
-          console.log('📄 Selected text:', selection.substring(0, 50) + '...');
+          console.log('📄 Selected text (captured):', selection.substring(0, 50) + '...');
+          console.log('📄 Full selection length:', selection.length);
 
-          // Store text in ref to be set when chatbot opens
+          // Store text - use the captured selection from closure
           const textToAsk = selection.substring(0, 200);
-          pendingTextRef.current = `Selected text: "${textToAsk}${selection.length > 200 ? '...' : ''}"\n\nWhat do you want to know about it?`;
+          const formattedText = `Selected text: "${textToAsk}${selection.length > 200 ? '...' : ''}"\n\nWhat do you want to know about it?`;
 
-          // Store full selection and open chatbot
+          console.log('📝 Formatted text:', formattedText);
+
+          // Store full selection for context
           setSelectedText(selection);
+
+          // Open chatbot first
           setIsOpen(true);
-          console.log('✅ Chatbot opening, text will be inserted via useEffect');
+          console.log('✅ Chatbot opened');
+
+          // Set input text directly after a delay to ensure chatbot is rendered
+          setTimeout(() => {
+            console.log('⏰ Timeout fired - setting input now');
+            console.log('📝 Setting input to:', formattedText.substring(0, 50) + '...');
+            setInput(formattedText);
+            console.log('✅ setInput called');
+
+            // Focus input field
+            setTimeout(() => {
+              const inputField = document.querySelector('[data-chatbot-input]');
+              console.log('🔍 Input field found:', !!inputField);
+              if (inputField) {
+                console.log('📝 Input field value:', inputField.value.substring(0, 50));
+                inputField.focus();
+                inputField.setSelectionRange(inputField.value.length, inputField.value.length);
+                console.log('✅ Input field focused and cursor positioned');
+              }
+            }, 100);
+          }, 300);
 
           button.remove();
         };
@@ -141,7 +185,10 @@ export default function Chatbot({ user }) {
     setIsLoading(true);
 
     try {
-      const contextText = selectedText || window.getSelection().toString();
+      // Try to get selection from article first, then fallback
+      const articleDoc = document.querySelector('article')?.ownerDocument || document;
+      const sel = articleDoc.getSelection() || window.getSelection();
+      const contextText = selectedText || sel?.toString() || '';
       setSelectedText('');
 
       const data = await apiRequest('/chat', {
