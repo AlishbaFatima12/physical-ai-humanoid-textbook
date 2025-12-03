@@ -179,26 +179,35 @@ async def chat(
 @app.post("/signup", response_model=AuthResponse)
 async def signup(request: SignupRequest, db: Session = Depends(get_db)):
     """Signup with background questions for personalization"""
-    # Check if user already exists
-    existing_user = db.query(models.User).filter(models.User.email == request.email).first()
-    if existing_user:
-        raise HTTPException(status_code=400, detail="Email already registered")
+    try:
+        # Check if user already exists
+        existing_user = db.query(models.User).filter(models.User.email == request.email).first()
+        if existing_user:
+            raise HTTPException(status_code=400, detail="Email already registered")
 
-    # Create new user
-    hashed_password = auth.get_password_hash(request.password)
-    new_user = models.User(
-        name=request.name,
-        email=request.email,
-        hashed_password=hashed_password,
-        software_background=request.software_background,
-        hardware_background=request.hardware_background,
-        programming_languages=request.programming_languages,
-        robotics_experience=request.robotics_experience
-    )
+        # Create new user
+        hashed_password = auth.get_password_hash(request.password)
+        new_user = models.User(
+            name=request.name,
+            email=request.email,
+            hashed_password=hashed_password,
+            software_background=request.software_background,
+            hardware_background=request.hardware_background,
+            programming_languages=request.programming_languages,
+            robotics_experience=request.robotics_experience
+        )
 
-    db.add(new_user)
-    db.commit()
-    db.refresh(new_user)
+        db.add(new_user)
+        db.commit()
+        db.refresh(new_user)
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"❌ Signup error: {e}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Database error: {str(e)}. Please check DATABASE_URL configuration."
+        )
 
     # Create default preferences
     preferences = models.UserPreference(
